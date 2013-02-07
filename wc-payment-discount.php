@@ -128,11 +128,11 @@ class WC_Payment_Discounts {
     public function script() {
         ?>
         <script type="text/javascript">
-            jQuery(document).ready(function($) {
+            // jQuery(document).ready(function($) {
                 // Generate discount function.
                 function generate_discount(value) {
                     // Call the discount.
-                    $.ajax({
+                    jQuery.ajax({
                         type: "POST",
                         url: woocommerce_params.ajax_url,
                         data: {
@@ -143,20 +143,20 @@ class WC_Payment_Discounts {
                         dataType: "json",
                         success: function() {
                             // Update the checkout.
-                            $("body").trigger("update_checkout");
+                            jQuery("body").trigger("update_checkout");
                         }
                     });
                 }
 
                 // Generate discount on click.
-                $("#order_review input[name=payment_method]").on("click", function() {
-                    generate_discount($(this));
+                jQuery("#order_review input[name=payment_method]").on("click", function() {
+                    generate_discount(jQuery(this));
                 });
 
-                $("body").load(function() {
-                    generate_discount($("#order_review input[name=payment_method]"));
+                jQuery("body").load(function() {
+                    generate_discount(jQuery("#order_review input[name=payment_method]"));
                 });
-            });
+            // });
         </script>
         <?php
     }
