@@ -1,16 +1,16 @@
-=== WooCommerce Payment Discounts ===
-Contributors: claudiosanches
-Donate link: http://claudiosmweb.com/doacoes/
-Tags: woocommerce, discount, coupon
-Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 1.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# WooCommerce Payment Discounts #
+**Contributors:** claudiosanches  
+**Donate link:** http://claudiosmweb.com/doacoes/  
+**Tags:** woocommerce, discount, coupon  
+**Requires at least:** 3.3  
+**Tested up to:** 3.5  
+**Stable tag:** 1.1  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 Adds discounts on specific payment methods in WooCommerce
 
-== Description ==
+## Description ##
 
 This plugin allows you to add discounts to specific methods of payment.
 
@@ -26,7 +26,7 @@ Funciona a partir de cupons do WooCommerce.
 
 Desta forma basta criar um cupom de desconto e adicionar ele a este plugin para funcionar.
 
-== Installation ==
+## Installation ##
 
 * Upload plugin files to your plugins folder, or install using WordPress built-in Add New Plugin installer;
 * Activate the plugin;
@@ -35,54 +35,56 @@ Desta forma basta criar um cupom de desconto e adicionar ele a este plugin para 
 
 ### Instalação e configuração em Português: ###
 
-= Instalação do plugin: =
+### Instalação do plugin: ###
 
 * Envie os arquivos do plugin para a pasta wp-content/plugins, ou instale usando o instalador de plugins do WordPress.
 * Ative o plugin.
 * Crie um copom de descontos no WooCommerce;
 * Navegue até WooCommerce -> Desconto no Pagamento e preencha as opções adicionando o copom criado.
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions ##
 
-= What is the plugin license? =
+### What is the plugin license? ###
 
 * This plugin is released under a GPL license.
 
-= What is needed to use this plugin? =
+### What is needed to use this plugin? ###
 
 * You need to create a coupon for discounts on WooCommerce.
 
 ### FAQ em Português: ###
 
-= Qual é a licença do plugin? =
+### Qual é a licença do plugin? ###
 
 * Este plugin esta licenciado como GPL.
 
-= O que eu preciso para utilizar este plugin? =
+### O que eu preciso para utilizar este plugin? ###
 
 * Você precisa criar um cupom de descontos no WooCommerce.
 
-== Screenshots ==
+## Screenshots ##
 
-1. Settings page.
+### 1. Settings page. ###
+![1. Settings page.](http://s.wordpress.org/extend/plugins/woocommerce-payment-discounts/screenshot-1.png)
 
-== Changelog ==
 
-= 1.1 - 16/02/2013 =
+## Changelog ##
+
+### 1.1 - 16/02/2013 ###
 
 * Fixed the problem of infinite reload during the checkout. Thanks to Dani Mello for their confidence in me to solve the problem in her site.
 
-= 1.0 =
+### 1.0 ###
 
 * Initial Release.
 
-== Upgrade Notice ==
+## Upgrade Notice ##
 
-= 1.0 =
+### 1.0 ###
 
 * Enjoy it.
 
-== License ==
+## License ##
 
 This file is part of WooCommerce Payment Discounts.
 WooCommerce Payment Discounts is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
