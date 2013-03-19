@@ -3,8 +3,8 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 3.3  
-**Tested up to:** 3.5  
-**Stable tag:** 1.1  
+**Tested up to:** 3.5.1  
+**Stable tag:** 1.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -69,6 +69,10 @@ Desta forma basta criar um cupom de desconto e adicionar ele a este plugin para 
 
 
 ## Changelog ##
+
+### 1.2 - 18/03/2013 ###
+
+* Fixed errors in settings page.
 
 ### 1.1 - 16/02/2013 ###
 

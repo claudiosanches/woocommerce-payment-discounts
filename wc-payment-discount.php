@@ -5,7 +5,7 @@
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.1
+ * Version: 1.2
  * License: GPLv2 or later
  * Text Domain: wcpaydisc
  * Domain Path: /languages/
@@ -105,13 +105,20 @@ class WC_Payment_Discounts {
                                 <th scope="row"><?php _e( 'Add discount in', 'wcpaydisc' ); ?></th>
                                 <td>
                                     <?php
-                                        foreach ( get_option( 'woocommerce_gateway_order' ) as $key => $value ) {
-                                            $default = isset( $gateways[$key] ) ? 1 : 0;
-                                            $name = str_replace( '_', ' ', ucwords( $key ) );
-                                            $checked = checked( 1, $default, false );
+                                        $valid_gateways = get_option( 'woocommerce_gateway_order' );
 
-                                            echo sprintf( '<input type="checkbox" id="%1$s-%2$s" name="wcpaydisc_gateways[%2$s]" value="1"%3$s /> <label for="%1$s-%2$s"> %4$s</label><br />', 'wcpaydisc-settings-gateway', $key, $checked , $name );
-                                        } ?>
+                                        if ( $valid_gateways ) {
+                                            foreach ( $valid_gateways as $key => $value ) {
+                                                $default = isset( $gateways[$key] ) ? 1 : 0;
+                                                $name = str_replace( '_', ' ', ucwords( $key ) );
+                                                $checked = checked( 1, $default, false );
+
+                                                echo sprintf( '<input type="checkbox" id="%1$s-%2$s" name="wcpaydisc_gateways[%2$s]" value="1"%3$s /> <label for="%1$s-%2$s"> %4$s</label><br />', 'wcpaydisc-settings-gateway', $key, $checked , $name );
+                                            }
+                                        } else {
+                                            echo sprintf( __( 'You must configure the payment methods before. Click %shere%s to configure.', 'wcpaydisc' ), '<a href="'. get_admin_url() . 'admin.php?page=woocommerce_settings&amp;tab=payment_gateways">', '</a>' );
+                                        }
+                                    ?>
                                 </td>
                             </tr>
                         </tbody>
