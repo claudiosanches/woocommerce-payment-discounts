@@ -46,21 +46,29 @@ Desta forma basta criar um cupom de desconto e adicionar ele a este plugin para 
 
 = What is the plugin license? =
 
-* This plugin is released under a GPL license.
+This plugin is released under a GPL license.
 
 = What is needed to use this plugin? =
 
-* You need to create a coupon for discounts on WooCommerce.
+You need to create a coupon for discounts on WooCommerce.
+
+= The discounts not being applied. How I fix this? =
+
+In the WordPress dashboard go to `WooCommerce > General` and enable the option **Enable the use of coupons**.
 
 ### FAQ em Português: ###
 
 = Qual é a licença do plugin? =
 
-* Este plugin esta licenciado como GPL.
+Este plugin esta licenciado como GPL.
 
 = O que eu preciso para utilizar este plugin? =
 
-* Você precisa criar um cupom de descontos no WooCommerce.
+Você precisa criar um cupom de descontos no WooCommerce.
+
+= Os descontos não estão sendo aplicados. Como resolvo isso? =
+
+No painel do WordPress vá até `WooCommerce > Geral` e ative a opção **Permitir o uso de cupons**.
 
 == Screenshots ==
 
