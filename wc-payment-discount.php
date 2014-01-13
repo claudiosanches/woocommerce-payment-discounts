@@ -16,20 +16,20 @@ class WC_Payment_Discounts {
 	public function __construct() {
 
 		// Load textdomain.
-		add_action( 'plugins_loaded', array( &$this, 'languages' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'languages' ), 0 );
 
 		// Add menu.
-		add_action( 'admin_menu', array( &$this, 'menu' ) );
+		add_action( 'admin_menu', array( $this, 'menu' ) );
 
 		// Register Settings.
-		add_action( 'admin_init', array( &$this, 'register_settings' ) );
+		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
 		// Add scripts in checkout review.
-		add_action( 'wp_footer', array( &$this, 'script' ) );
+		add_action( 'wp_footer', array( $this, 'script' ) );
 
 		// Register ajax hooks.
-		add_action( 'wp_ajax_nopriv_wc_custom_payment_discount', array( &$this, 'ajax' ) );
-		add_action( 'wp_ajax_wc_custom_payment_discount', array( &$this, 'ajax' ) );
+		add_action( 'wp_ajax_nopriv_wc_custom_payment_discount', array( $this, 'ajax' ) );
+		add_action( 'wp_ajax_wc_custom_payment_discount', array( $this, 'ajax' ) );
 	}
 
 	/**
@@ -49,7 +49,7 @@ class WC_Payment_Discounts {
 			__( 'Payment Discounts', 'wcpaydisc' ),
 			'manage_options',
 			'wc-payment-discounts',
-			array( &$this, 'settings_page' )
+			array( $this, 'settings_page' )
 		);
 	}
 
