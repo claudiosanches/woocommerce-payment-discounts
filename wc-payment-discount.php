@@ -68,7 +68,6 @@ class WC_Payment_Discounts {
 	public function settings_page() {
 		?>
 			<div class="wrap">
-				<?php screen_icon( 'options-general' ); ?>
 				<h2><?php _e( 'Payment Discounts', 'wcpaydisc' ); ?></h2>
 				<?php settings_errors(); ?>
 				<form method="post" action="options.php">
