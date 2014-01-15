@@ -71,7 +71,7 @@ class WC_Payment_Discounts_Admin {
 			}
 
 			// Plugin need update.
-			if ( ! get_option( 'woocommerce_payment_discounts_version' ) ) {
+			if ( ! version_compare( get_option( 'woocommerce_payment_discounts_version' ), WC_Payment_Discounts::VERSION, '>=' ) ) {
 				add_action( 'admin_notices', array( $this, 'needs_update' ) );
 				$this->update();
 			}
@@ -89,8 +89,8 @@ class WC_Payment_Discounts_Admin {
 	 */
 	protected function update() {
 		if ( isset( $_GET['wc-payment-discounts-update'] ) && '1' == $_GET['wc-payment-discounts-update'] ) {
-			add_option( 'woocommerce_payment_discounts', array() );
-			add_option( 'woocommerce_payment_discounts_version', WC_Payment_Discounts::VERSION );
+			update_option( 'woocommerce_payment_discounts', array() );
+			update_option( 'woocommerce_payment_discounts_version', WC_Payment_Discounts::VERSION );
 			delete_option( 'wcpaydisc_settings' );
 			delete_option( 'wcpaydisc_gateways' );
 		}
