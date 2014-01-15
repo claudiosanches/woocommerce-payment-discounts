@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Discounts Per Payment Method v2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-01-15 00:10:55+0000\n"
+"Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: admin/class-wc-payment-discounts-admin.php:109
+#: admin/class-wc-payment-discounts-admin.php:110
+#@ woocommerce-payment-discounts
+msgid "Payment Discounts"
+msgstr "Descontos no Pagamento"
+
+#: admin/class-wc-payment-discounts-admin.php:177
+#, php-format
+#@ woocommerce-payment-discounts
+msgid "<strong>WooCommerce Discounts Per Payment Method</strong> depends on the last version of %s to work!"
+msgstr "<strong>WooCommerce Descontos por Método de Pagamento</strong> depende da última versão do %s para funcionar!"
+
+#: admin/class-wc-payment-discounts-admin.php:177
+#@ woocommerce-payment-discounts
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: admin/class-wc-payment-discounts-admin.php:188
+#@ woocommerce-payment-discounts
+msgid "<strong>WooCommerce Discounts Per Payment Method</strong> works only with WooCommerce 2.0 or higher, please, upgrade you WooCommerce!"
+msgstr "<strong>WooCommerce Descontos por Método de Pagamento</strong> dfunciona apenas com WooCommerce 2.0 ou superior, por favor, atualize o seu WooCommerce!"
+
+#: admin/class-wc-payment-discounts-admin.php:199
+#, php-format
+#@ woocommerce-payment-discounts
+msgid "<strong>WooCommerce Discounts Per Payment Method</strong> has been updated! Much has changed, you can now configure discount each payment method. %s."
+msgstr "<strong>WooCommerce Descontos por Método de Pagamento</strong> foi atualizado! Muita coisa mudou, você precisa agora configurar descontos para cada método de pagamento. %s."
+
+#: admin/class-wc-payment-discounts-admin.php:199
+#@ woocommerce-payment-discounts
+msgid "Configure now the discounts"
+msgstr "Configure os descontos agora"
+
+#: admin/views/admin.php:21
+#@ woocommerce-payment-discounts
+msgid "Payment Methods"
+msgstr "Métodos de Pagamento"
+
+#: admin/views/admin.php:22
+#@ woocommerce-payment-discounts
+msgid "Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway."
+msgstr "Entre com um valor (ex. 20.99 ou uma porcentagem, 5%) para cada método de pagamento."
+
+#: public/class-wc-payment-discounts.php:364
+#, php-format
+#@ woocommerce-payment-discounts
+msgid "Discount for %s (-%s)"
+msgstr "Desconto para %s (-%s)"
+
+#: public/class-wc-payment-discounts.php:367
+#, php-format
+#@ woocommerce-payment-discounts
+msgid "Discount for %s"
+msgstr "Desconto para %s"
+
+#: public/class-wc-payment-discounts.php:392
+#, php-format
+#@ woocommerce-payment-discounts
+msgid "%s off"
+msgstr "%s de desconto"
+
+#. translators: plugin header field 'Name'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "WooCommerce Discounts Per Payment Method"
+msgstr "WooCommerce Descontos por Método de Pagamento"
+
+#. translators: plugin header field 'PluginURI'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "http://wordpress.org/plugins/woocommerce-payment-discounts/"
+msgstr "http://wordpress.org/plugins/woocommerce-payment-discounts/"
+
+#. translators: plugin header field 'Description'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "Adds discounts on specific payment methods in WooCommerce."
+msgstr "Adicione descontos para específicos métodos de pagamento no WooCommerce."
+
+#. translators: plugin header field 'Author'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "claudiosanches"
+msgstr "claudiosanches"
+
+#. translators: plugin header field 'AuthorURI'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "http://claudiosmweb.com/"
+msgstr "http://claudiosmweb.com/"
+
+#. translators: plugin header field 'Version'
+#: woocommerce-payment-discounts.php:0
+#@ woocommerce-payment-discounts
+msgid "2.0.0"
+msgstr "2.0.0"
+
