@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Discounts Per Payment Method v2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-01-15 00:10:55+0000\n"
+"PO-Revision-Date: 2014-01-15 00:17:33+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -116,4 +116,9 @@ msgstr "http://claudiosmweb.com/"
 #@ woocommerce-payment-discounts
 msgid "2.0.0"
 msgstr "2.0.0"
+
+#: admin/views/admin.php:22
+#@ woocommerce-payment-discounts
+msgid "Use zero (0) for not applying discounts."
+msgstr "Utilize zero (0) para não aplicar descontos."
 

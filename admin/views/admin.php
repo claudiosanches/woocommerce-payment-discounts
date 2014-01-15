@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<form method="post" action="options.php">
 		<?php settings_fields( 'woocommerce_payment_discounts_group' ); ?>
 		<h3><?php _e( 'Payment Methods', $this->plugin_slug ); ?></h3>
-		<p><?php _e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', $this->plugin_slug ); ?></p>
+		<p><?php _e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', $this->plugin_slug ); ?><br /><?php _e( 'Use zero (0) for not applying discounts.', $this->plugin_slug ); ?></p>
 		<table class="form-table">
 			<tbody>
 				<?php
