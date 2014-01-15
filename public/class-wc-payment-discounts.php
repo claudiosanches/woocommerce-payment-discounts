@@ -361,7 +361,7 @@ class WC_Payment_Discounts {
 	 */
 	protected function discount_name( $value, $gateway ) {
 		if ( strstr( $value, '%' ) ) {
-			return sprintf( __( 'Discount for %s (-%s)', self::$plugin_slug ), esc_attr( $gateway->title ), $value );
+			return sprintf( __( 'Discount for %s (%s off)', self::$plugin_slug ), esc_attr( $gateway->title ), $value );
 		}
 
 		return sprintf( __( 'Discount for %s', self::$plugin_slug ), esc_attr( $gateway->title ) );
