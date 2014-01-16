@@ -289,7 +289,7 @@ class WC_Payment_Discounts {
 	 */
 	public function enqueue_scripts() {
 		if ( is_checkout() ) {
-			wp_enqueue_script( self::$plugin_slug, plugins_url( 'assets/js/update-checkout.js', __FILE__ ), array( 'wc-checkout' ), self::VERSION );
+			wp_enqueue_script( self::$plugin_slug, plugins_url( 'assets/js/update-checkout.min.js', __FILE__ ), array( 'wc-checkout' ), self::VERSION );
 		}
 	}
 
