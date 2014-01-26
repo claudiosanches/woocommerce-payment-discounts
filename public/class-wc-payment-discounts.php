@@ -134,6 +134,9 @@ class WC_Payment_Discounts {
 
 			// Display the discount in payment gateways titles.
 			add_filter( 'woocommerce_gateway_title', array( $this, 'gateway_title' ), 10, 2 );
+
+			// Fix salved payment method title.
+			add_action( 'woocommerce_checkout_order_processed', array( $this, 'fix_payment_method_title' ), 1 );
 		}
 	}
 
@@ -394,4 +397,22 @@ class WC_Payment_Discounts {
 
 		return $title;
 	}
+
+	/**
+	 * Fix payment method title.
+	 * Remove the discount in the title.
+	 *
+	 * @param  int  $order_id Order ID.
+	 * @param  array $posted  Posted order data.
+	 *
+	 * @return void
+	 */
+	public function fix_payment_method_title( $order_id ) {
+		$old_title = get_post_meta( $order_id, '_payment_method_title', true );
+		$new_title = preg_replace( '/<small>.*<\/small>/', '', $old_title );
+
+		// Save the fixed title.
+		update_post_meta( $order_id, '_payment_method_title', $new_title );
+	}
+
 }
