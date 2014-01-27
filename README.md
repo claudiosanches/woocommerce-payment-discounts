@@ -3,12 +3,12 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 3.3  
-**Tested up to:** 3.5.1  
-**Stable tag:** 1.2  
+**Tested up to:** 3.8.1  
+**Stable tag:** 2.0.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Adds discounts on specific payment methods in WooCommerce
+Adds discounts on specific payment methods in WooCommerce.
 
 ## Description ##
 
@@ -55,9 +55,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Changelog ##
 
-### 2.0.0 - 17/01/2014 ###
+### 2.0.0 - 27/01/2014 ###
 
-* TODO.
+* Improved all plugin code.
+* Added option to add the discounts without coupons.
 
 ### 1.2.0 - 18/03/2013 ###
 
@@ -73,9 +74,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Upgrade Notice ##
 
-### 2.0.o ###
+### 2.0.0 ###
 
-* TODO.
+* Improved all plugin code.
+* Added option to add the discounts without coupons.
 
 ## License ##
 
