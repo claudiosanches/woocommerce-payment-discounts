@@ -425,13 +425,17 @@ class WC_Payment_Discounts {
 	 * @return string
 	 */
 	public function discount_display() {
-		if ( 0 < $this->cart_discount ) {
-			$html = '<tr class="order-total">';
-				$html .= '<th>' . $this->discount_name . '</th>';
-				$html .= '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
-			$html .= '</tr>';
+		$woocommerce = self::woocommerce_instance();
 
-			echo $html;
+		if ( version_compare( $woocommerce->version, '2.1', '>=' ) ) {
+			if ( 0 < $this->cart_discount ) {
+				$html = '<tr class="order-total">';
+					$html .= '<th>' . $this->discount_name . '</th>';
+					$html .= '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
+				$html .= '</tr>';
+
+				echo $html;
+			}
 		}
 	}
 
