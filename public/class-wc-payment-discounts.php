@@ -43,6 +43,24 @@ class WC_Payment_Discounts {
 	protected static $instance = null;
 
 	/**
+	 * Cart discount.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var   int
+	 */
+	protected $cart_discount = 0;
+
+	/**
+	 * Discount name.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var   string
+	 */
+	protected $discount_name = '';
+
+	/**
 	 * Initialize the plugin.
 	 *
 	 * @since 2.0.0
@@ -130,7 +148,10 @@ class WC_Payment_Discounts {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 			// Apply the discounts.
-			add_action( 'woocommerce_cart_calculate_fees', array( $this, 'cart_calculate_fees' ) );
+			add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 1, 3 );
+
+			// Display the discount in review order.
+			add_action( 'woocommerce_review_order_before_order_total', array( $this, 'discount_display' ) );
 
 			// Display the discount in payment gateways titles.
 			add_filter( 'woocommerce_gateway_title', array( $this, 'gateway_title' ), 10, 2 );
@@ -297,44 +318,6 @@ class WC_Payment_Discounts {
 	}
 
 	/**
-	 * Calcule the cart fees.
-	 *
-	 * @since  2.0.0
-	 *
-	 * @param  object $cart WC_Cart object.
-	 *
-	 * @return void
-	 */
-	public function cart_calculate_fees( $cart ) {
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-			return;
-		}
-
-		$woocommerce = self::woocommerce_instance();
-
-		// Gets the settings.
-		$gateways = get_option( 'woocommerce_payment_discounts' );
-
-		if ( isset( $gateways[ $woocommerce->session->chosen_payment_method ] ) ) {
-			// Gets the gateway discount.
-			$value = $gateways[ $woocommerce->session->chosen_payment_method ];
-
-			if ( 0 < $value ) {
-				// Gets the gateway data.
-				$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
-				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
-
-				// Generate the discount amount and title.
-				$discount = $this->calculate_discount( $value, $cart->subtotal );
-				$name     = $this->discount_name( $value, $gateway );
-
-				// Add the discount as a fee.
-				$cart->add_fee( $name, $discount );
-			}
-		}
-	}
-
-	/**
 	 * Calcule the discount amount.
 	 *
 	 * @since  2.0.0
@@ -344,12 +327,12 @@ class WC_Payment_Discounts {
 	 *
 	 * @return mixed        Discount amount.
 	 */
-    protected function calculate_discount( $value, $subtotal ) {
+	protected function calculate_discount( $value, $subtotal ) {
 		if ( strstr( $value, '%' ) ) {
 			$value = ( $subtotal / 100 ) * str_replace( '%', '', $value );
 		}
 
-		return '-' . $value;
+		return $value;
 	}
 
 	/**
@@ -399,6 +382,58 @@ class WC_Payment_Discounts {
 	}
 
 	/**
+	 * Add discount.
+	 *
+	 * @since  2.0.0
+	 *
+	 * @param  object $cart WC_Cart object.
+	 *
+	 * @return void
+	 */
+	public function add_discount( $cart ) {
+		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+			return;
+		}
+
+		$woocommerce = self::woocommerce_instance();
+
+		// Gets the settings.
+		$gateways = get_option( 'woocommerce_payment_discounts' );
+
+		if ( isset( $gateways[ $woocommerce->session->chosen_payment_method ] ) ) {
+			// Gets the gateway discount.
+			$value = $gateways[ $woocommerce->session->chosen_payment_method ];
+
+			if ( 0 < $value ) {
+				// Gets the gateway data.
+				$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
+				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
+
+				// Generate the discount amount and title.
+				$this->cart_discount = $this->calculate_discount( $value, $cart->subtotal );
+				$this->discount_name = $this->discount_name( $value, $gateway );
+
+				// Apply the discount.
+				$cart->discount_total = ( $this->cart_discount + $cart->discount_total );
+			}
+		}
+	}
+
+	/**
+	 * Diplay the discount in checkout order view.
+	 *
+	 * @return string
+	 */
+	public function discount_display() {
+		if ( 0 < $this->cart_discount ) {
+			echo '<tr class="order-total">';
+				echo '<th>' . $this->discount_name . '</th>';
+				echo '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
+			echo '</tr>';
+		}
+	}
+
+	/**
 	 * Fix payment method title.
 	 * Remove the discount in the title.
 	 *
@@ -414,5 +449,4 @@ class WC_Payment_Discounts {
 		// Save the fixed title.
 		update_post_meta( $order_id, '_payment_method_title', $new_title );
 	}
-
 }
