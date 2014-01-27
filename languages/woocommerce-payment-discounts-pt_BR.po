@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Discounts Per Payment Method v2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-01-15 01:03:21+0000\n"
+"PO-Revision-Date: 2014-01-27 21:38:11+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -63,13 +63,13 @@ msgstr "Métodos de Pagamento"
 msgid "Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway."
 msgstr "Entre com um valor (ex. 20.99 ou uma porcentagem, 5%) para cada método de pagamento."
 
-#: public/class-wc-payment-discounts.php:367
+#: public/class-wc-payment-discounts.php:353
 #, php-format
 #@ woocommerce-payment-discounts
 msgid "Discount for %s"
 msgstr "Desconto para %s"
 
-#: public/class-wc-payment-discounts.php:392
+#: public/class-wc-payment-discounts.php:378
 #, php-format
 #@ woocommerce-payment-discounts
 msgid "%s off"
@@ -116,7 +116,7 @@ msgstr "2.0.0"
 msgid "Use zero (0) for not applying discounts."
 msgstr "Utilize zero (0) para não aplicar descontos."
 
-#: public/class-wc-payment-discounts.php:364
+#: public/class-wc-payment-discounts.php:350
 #, php-format
 #@ woocommerce-payment-discounts
 msgid "Discount for %s (%s off)"
