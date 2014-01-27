@@ -426,10 +426,12 @@ class WC_Payment_Discounts {
 	 */
 	public function discount_display() {
 		if ( 0 < $this->cart_discount ) {
-			echo '<tr class="order-total">';
-				echo '<th>' . $this->discount_name . '</th>';
-				echo '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
-			echo '</tr>';
+			$html = '<tr class="order-total">';
+				$html .= '<th>' . $this->discount_name . '</th>';
+				$html .= '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
+			$html .= '</tr>';
+
+			echo $html;
 		}
 	}
 
