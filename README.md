@@ -2,7 +2,7 @@
 **Contributors:** claudiosanches  
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
-**Requires at least:** 3.3  
+**Requires at least:** 3.5  
 **Tested up to:** 3.8.1  
 **Stable tag:** 2.0.0  
 **License:** GPLv2 or later  
