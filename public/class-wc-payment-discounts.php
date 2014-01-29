@@ -384,7 +384,7 @@ class WC_Payment_Discounts {
 	/**
 	 * Add discount.
 	 *
-	 * @since  2.0.0
+	 * @since  2.0.1
 	 *
 	 * @param  object $cart WC_Cart object.
 	 *

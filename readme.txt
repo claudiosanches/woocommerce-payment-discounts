@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, discount, coupon
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 == Changelog ==
 
+= 2.0.1 - 28/01/2014 =
+
+* Fixed a bug that allowed to add the discount in the cart before the customer arrive at the checkout page.
+
 = 2.0.0 - 27/01/2014 =
 
 * Improved all plugin code.
@@ -70,10 +74,9 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 == Upgrade Notice ==
 
-= 2.0.0 =
+= 2.0.1 =
 
-* Improved all plugin code.
-* Added option to add the discounts without coupons.
+* Fixed a bug that allowed to add the discount in the cart before the customer arrive at the checkout page.
 
 == License ==
 
