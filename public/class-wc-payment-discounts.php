@@ -391,7 +391,7 @@ class WC_Payment_Discounts {
 	 * @return void
 	 */
 	public function add_discount( $cart ) {
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+		if ( is_admin() && ! defined( 'DOING_AJAX' ) || is_cart() ) {
 			return;
 		}
 
