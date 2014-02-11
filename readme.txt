@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, discount, coupon
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 2. Plugin in action on checkout page.
 
 == Changelog ==
+
+= 2.0.2 - 10/02/2014 =
+
+* Added de_DE translation by [@chrwald](https://github.com/chrwald).
 
 = 2.0.1 - 28/01/2014 =
 
