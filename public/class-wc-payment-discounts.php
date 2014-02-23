@@ -429,12 +429,15 @@ class WC_Payment_Discounts {
 
 		if ( version_compare( $woocommerce->version, '2.1', '>=' ) ) {
 			if ( 0 < $this->cart_discount ) {
+				$discount_name  = $this->discount_name;
+				$discount_price = woocommerce_price( $this->cart_discount );
+
 				$html = '<tr class="order-total">';
-					$html .= '<th>' . $this->discount_name . '</th>';
-					$html .= '<td>-' . woocommerce_price( $this->cart_discount ) . '</td>';
+					$html .= '<th>' . $discount_name . '</th>';
+					$html .= '<td>-' . $discount_price . '</td>';
 				$html .= '</tr>';
 
-				echo $html;
+				echo apply_filters( 'wc_payment_discounts_row', $html, $discount_name, $discount_price );
 			}
 		}
 	}
