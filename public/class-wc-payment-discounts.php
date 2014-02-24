@@ -18,11 +18,11 @@ class WC_Payment_Discounts {
 	/**
 	 * Plugin version.
 	 *
-	 * @since 2.0.0
+	 * @since 2.0.3
 	 *
 	 * @var   string
 	 */
-	const VERSION = '2.0.0';
+	const VERSION = '2.0.3';
 
 	/**
 	 * Plugin slug.
@@ -421,6 +421,8 @@ class WC_Payment_Discounts {
 
 	/**
 	 * Diplay the discount in checkout order view.
+	 *
+	 * @since  2.0.3
 	 *
 	 * @return string
 	 */

@@ -10,7 +10,7 @@
  * Plugin Name:       WooCommerce Discounts Per Payment Method
  * Plugin URI:        http://wordpress.org/plugins/woocommerce-payment-discounts/
  * Description:       Adds discounts on specific payment methods in WooCommerce.
- * Version:           2.0.2
+ * Version:           2.0.3
  * Author:            claudiosanches
  * Author URI:        http://claudiosmweb.com/
  * Text Domain:       woocommerce-payment-discounts
