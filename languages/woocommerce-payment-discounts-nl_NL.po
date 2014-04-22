@@ -1,0 +1,100 @@
+# Copyright (C) 2014 WooCommerce Discounts Per Payment Method
+# This file is distributed under the same license as the WooCommerce Discounts Per Payment Method package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Discounts Per Payment Method 2.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/woocommerce-"
+"payment-discounts\n"
+"POT-Creation-Date: 2014-01-27 21:38:44+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-04-22 11:38+0100\n"
+"Last-Translator: Robin Berghuijs <robin@robinberghuijs.com>\n"
+"Language-Team: Flobin <robin@robinberghuijs.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.4\n"
+"Language: nl_NL\n"
+
+#: admin/class-wc-payment-discounts-admin.php:109
+#: admin/class-wc-payment-discounts-admin.php:110
+msgid "Payment Discounts"
+msgstr "Betalingskortingen"
+
+#: admin/class-wc-payment-discounts-admin.php:177
+msgid ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> depends on the "
+"last version of %s to work!"
+msgstr ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> heeft de nieuwste "
+"versie van %s nodig om te werken!"
+
+#: admin/class-wc-payment-discounts-admin.php:177
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: admin/class-wc-payment-discounts-admin.php:188
+msgid ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> works only with "
+"WooCommerce 2.0 or higher, please, upgrade you WooCommerce!"
+msgstr "WooCommerce"
+
+#: admin/class-wc-payment-discounts-admin.php:199
+msgid ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> has been updated! "
+"Much has changed, you can now configure discount each payment method. %s."
+msgstr ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> is bijgewerkt! Er "
+"is veel verandert, u kunt nu per betalingsmethode een korting instellen. %s."
+
+#: admin/class-wc-payment-discounts-admin.php:199
+msgid "Configure now the discounts"
+msgstr "Stel nu de kortingen in"
+
+#: admin/views/admin.php:21
+msgid "Payment Methods"
+msgstr "Betalingsmethoden"
+
+#: admin/views/admin.php:22
+msgid ""
+"Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment "
+"gateway."
+msgstr ""
+"Voer een hoeveelheid in (bijvoorbeeld 20.99 of een percentage als 5%) for "
+"iedere betalingsmethode."
+
+#: admin/views/admin.php:22
+msgid "Use zero (0) for not applying discounts."
+msgstr "Gebruik nul (0) als u geen korting wilt toepassen."
+
+#: public/class-wc-payment-discounts.php:350
+msgid "Discount for %s (%s off)"
+msgstr "Korting voor %s (%s minder)"
+
+#: public/class-wc-payment-discounts.php:353
+msgid "Discount for %s"
+msgstr "Korting voor %s"
+
+#: public/class-wc-payment-discounts.php:378
+msgid "%s off"
+msgstr "%s minder"
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Discounts Per Payment Method"
+msgstr "WooCommerce Discounts Per Payment Method"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/woocommerce-payment-discounts/"
+msgstr "http://wordpress.org/plugins/woocommerce-payment-discounts/"
+
+#. Description of the plugin/theme
+msgid "Adds discounts on specific payment methods in WooCommerce."
+msgstr "Voegt kortingen bij specifieke betalingsmethoden in WooCommerce toe."
+
+#. Author of the plugin/theme
+msgid "claudiosanches"
+msgstr "claudiosanches"
+
+#. Author URI of the plugin/theme
+msgid "http://claudiosmweb.com/"
+msgstr "http://claudiosmweb.com/"
