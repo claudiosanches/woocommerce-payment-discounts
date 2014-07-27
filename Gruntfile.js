@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
 		// plugin directories
 		dirs: {
 			front: {
-				js: 'public/assets/js'
+				js: 'assets/js'
 			}
 		},
 
@@ -29,7 +29,7 @@ module.exports = function( grunt ) {
 				'.gitignore',
 				'.jshintrc',
 				'node_modules/',
-				'public/assets/js/update-checkout.js',
+				'assets/js/update-checkout.js',
 				'Gruntfile.js',
 				'README.md',
 				'package.json',

@@ -1,51 +1,132 @@
 <?php
 /**
- * WooCommerce Discounts Per Payment Method plugin.
- *
- * @package   WC_Payment_Discounts
- * @author    Claudio Sanches <contato@claudiosmweb.com>
- * @license   GPL-2.0+
- *
- * @wordpress-plugin
- * Plugin Name:       WooCommerce Discounts Per Payment Method
- * Plugin URI:        http://wordpress.org/plugins/woocommerce-payment-discounts/
- * Description:       Adds discounts on specific payment methods in WooCommerce.
- * Version:           2.0.3
- * Author:            claudiosanches
- * Author URI:        http://claudiosmweb.com/
- * Text Domain:       woocommerce-payment-discounts
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/claudiosmweb/woocommerce-payment-discounts
+ * Plugin Name: WooCommerce Discounts Per Payment Method
+ * Plugin URI: https://github.com/claudiosmweb/woocommerce-payment-discounts
+ * Description: Adds discounts on specific payment methods in WooCommerce.
+ * Author: claudiosanches
+ * Author URI: http://claudiosmweb.com/
+ * Version: 2.1.0
+ * License: GPLv2 or later
+ * Text Domain: woocommerce-payment-discounts
+ * Domain Path: /languages/
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! class_exists( 'WC_Payment_Discounts' ) ) :
+
+/**
+ * WooCommerce Discounts Per Payment Method plugin.
+ */
+class WC_Payment_Discounts {
+
+	/**
+	 * Plugin version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '2.0.3';
+
+	/**
+	 * Instance of this class.
+	 *
+	 * @var object
+	 */
+	protected static $instance = null;
+
+	/**
+	 * Initialize the plugin.
+	 */
+	private function __construct() {
+		// Load plugin text domain.
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+
+		if ( function_exists( 'WC' ) ) {
+			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+				$this->admin_includes();
+			}
+
+			$this->includes();
+		} else {
+			add_action( 'admin_notices', array( $this, 'woocommerce_is_missing_notice' ) );
+		}
+	}
+
+	/**
+	 * Return an instance of this class.
+	 *
+	 * @return object A single instance of this class.
+	 */
+	public static function get_instance() {
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
+
+	/**
+	 * Includes.
+	 *
+	 * @return void
+	 */
+	protected function includes() {
+		include_once( 'includes/class-wc-payment-discounts-add-discount.php' );
+	}
+
+	/**
+	 * Admin includes.
+	 *
+	 * @return void
+	 */
+	protected function admin_includes() {
+		include_once( 'includes/admin/class-wc-payment-discounts-admin.php' );
+	}
+
+	/**
+	 * Fired for each blog when the plugin is activated.
+	 *
+	 * @return void
+	 */
+	public static function activate() {
+		add_option( 'woocommerce_payment_discounts', array() );
+		add_option( 'woocommerce_payment_discounts_version', self::VERSION );
+	}
+
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @return void
+	 */
+	public function load_plugin_textdomain() {
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-payment-discounts' );
+
+		load_textdomain( 'woocommerce-payment-discounts', trailingslashit( WP_LANG_DIR ) . 'woocommerce-payment-discounts/woocommerce-payment-discounts-' . $locale . '.mo' );
+		load_plugin_textdomain( 'woocommerce-payment-discounts', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * WooCommerce missing notice.
+	 *
+	 * @return string Admin notice.
+	 */
+	public function woocommerce_is_missing_notice() {
+		echo '<div class="error"><p>' . sprintf( __( '<strong>WooCommerce Discounts Per Payment Method</strong> depends on the last version of %s to work!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+	}
 }
 
 /**
- * Plugin main class.
- */
-require_once plugin_dir_path( __FILE__ ) . 'public/class-wc-payment-discounts.php';
-
-/**
- * Activated and deactivated actions.
+ * Install plugin default options.
  */
 register_activation_hook( __FILE__, array( 'WC_Payment_Discounts', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'WC_Payment_Discounts', 'deactivate' ) );
 
 /**
  * Initialize the plugin actions.
  */
 add_action( 'plugins_loaded', array( 'WC_Payment_Discounts', 'get_instance' ) );
 
-/**
- * Initialize the plugin admin.
- */
-if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-	require_once plugin_dir_path( __FILE__ ) . 'admin/class-wc-payment-discounts-admin.php';
-
-	add_action( 'plugins_loaded', array( 'WC_Payment_Discounts_Admin', 'get_instance' ) );
-}
+endif;

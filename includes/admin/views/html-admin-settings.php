@@ -1,10 +1,6 @@
 <?php
 /**
  * Administration page.
- *
- * @package   WC_Payment_Discounts_Admin
- * @author    Claudio Sanches <contato@claudiosmweb.com>
- * @license   GPL-2.0+
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<form method="post" action="options.php">
 		<?php settings_fields( 'woocommerce_payment_discounts_group' ); ?>
-		<h3><?php _e( 'Payment Methods', $this->plugin_slug ); ?></h3>
-		<p><?php _e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', $this->plugin_slug ); ?><br /><?php _e( 'Use zero (0) for not applying discounts.', $this->plugin_slug ); ?></p>
+		<h3><?php _e( 'Payment Methods', 'woocommerce-payment-discounts' ); ?></h3>
+		<p><?php _e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', 'woocommerce-payment-discounts' ); ?><br /><?php _e( 'Use zero (0) for not applying discounts.', 'woocommerce-payment-discounts' ); ?></p>
 		<table class="form-table">
 			<tbody>
 				<?php
