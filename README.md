@@ -3,7 +3,7 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 3.5  
-**Tested up to:** 3.9  
+**Tested up to:** 4.0  
 **Stable tag:** 2.0.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -47,10 +47,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 ## Screenshots ##
 
 ### 1. Settings page. ###
-![1. Settings page.](http://s.wordpress.org/extend/plugins/woocommerce-discounts-per-payment-method/screenshot-1.png)
+![1. Settings page.](http://ps.w.org/woocommerce-discounts-per-payment-method/assets/screenshot-1.png)
 
 ### 2. Plugin in action on checkout page. ###
-![2. Plugin in action on checkout page.](http://s.wordpress.org/extend/plugins/woocommerce-discounts-per-payment-method/screenshot-2.png)
+![2. Plugin in action on checkout page.](http://ps.w.org/woocommerce-discounts-per-payment-method/assets/screenshot-2.png)
 
 
 ## Changelog ##
