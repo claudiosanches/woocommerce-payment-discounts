@@ -5,7 +5,7 @@
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 2.1.2
+ * Version: 2.1.3
  * License: GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages/
@@ -28,7 +28,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.2';
+	const VERSION = '2.1.3';
 
 	/**
 	 * Instance of this class.

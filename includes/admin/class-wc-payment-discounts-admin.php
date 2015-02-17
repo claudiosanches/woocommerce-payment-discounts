@@ -23,25 +23,17 @@ class WC_Payment_Discounts_Admin {
 			add_action( 'admin_notices', array( $this, 'woocommerce_need_update' ) );
 		}
 
-		// Plugin need update.
-		if ( ! version_compare( get_option( 'woocommerce_payment_discounts_version' ), WC_Payment_Discounts::VERSION, '>=' ) ) {
-			add_action( 'admin_notices', array( $this, 'needs_update' ) );
-
-			$this->update();
-		}
+		$this->maybe_update();
 	}
 
 	/**
-	 * Update the plugin.
-	 *
-	 * @return void
+	 * Maybe update the plugin.
 	 */
-	protected function update() {
-		if ( isset( $_GET['wc-payment-discounts-update'] ) && '1' == $_GET['wc-payment-discounts-update'] ) {
-			update_option( 'woocommerce_payment_discounts', array() );
+	protected function maybe_update() {
+		$current_version = get_option( 'woocommerce_payment_discounts_version', '0' );
+
+		if ( ! version_compare( $current_version, WC_Payment_Discounts::VERSION, '>=' ) ) {
 			update_option( 'woocommerce_payment_discounts_version', WC_Payment_Discounts::VERSION );
-			delete_option( 'wcpaydisc_settings' );
-			delete_option( 'wcpaydisc_gateways' );
 		}
 	}
 
@@ -106,7 +98,7 @@ class WC_Payment_Discounts_Admin {
 		$settings         = get_option( 'woocommerce_payment_discounts' );
 		$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
 
-		include_once( 'views/html-admin-settings.php' );
+		include_once 'views/html-admin-settings.php';
 	}
 
 	/**
@@ -116,15 +108,6 @@ class WC_Payment_Discounts_Admin {
 	 */
 	public function woocommerce_need_update() {
 		echo '<div class="error"><p>' . __( '<strong>WooCommerce Discounts Per Payment Method</strong> works only with WooCommerce 2.0 or higher, please, upgrade you WooCommerce!', 'woocommerce-payment-discounts' ) . '</p></div>';
-	}
-
-	/**
-	 * This plugin needs update.
-	 *
-	 * @return string Admin notice.
-	 */
-	public function needs_update() {
-		echo '<div class="error"><p>' . sprintf( __( '<strong>WooCommerce Discounts Per Payment Method</strong> has been updated! Much has changed, you can now configure discount each payment method. %s.', 'woocommerce-payment-discounts' ), '<a href="' . admin_url( 'admin.php?page=woocommerce-payment-discounts&wc-payment-discounts-update=1' ) . '">' . __( 'Configure now the discounts', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 

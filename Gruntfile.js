@@ -29,7 +29,6 @@ module.exports = function( grunt ) {
 				'.gitignore',
 				'.jshintrc',
 				'node_modules/',
-				'assets/js/update-checkout.js',
 				'Gruntfile.js',
 				'README.md',
 				'package.json',
