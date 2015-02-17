@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, discount, coupon
 Requires at least: 4.0
 Tested up to: 4.1
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 == Changelog ==
 
+= 2.1.4 - 2015/02/17 =
+
+* Added method to save the discount in the order data.
+
 = 2.1.3 - 2015/02/17 =
 
 * Fixed the plugin update script.
@@ -99,12 +103,13 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 == Upgrade Notice ==
 
-= 2.1.3 =
+= 2.1.4 =
 
 * Added support for WooCommerce 2.3.
 * Discounts are now applied in the cart contents total, before shipping and taxes.
 * Added the `wc_payment_discounts_apply_discount` filter.
 * Fixed the plugin update script.
+* Added method to save the discount in the order data.
 
 == License ==
 
