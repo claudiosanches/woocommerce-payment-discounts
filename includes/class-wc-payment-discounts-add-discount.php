@@ -128,7 +128,7 @@ class WC_Payment_Discounts_Add_Discount {
 			// Gets the gateway discount.
 			$value = $gateways[ $woocommerce->session->chosen_payment_method ];
 
-			if ( 0 < $value ) {
+			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $value, $cart ) ) {
 				// Gets the gateway data.
 				$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
 				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];

@@ -4,7 +4,7 @@
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 4.0  
 **Tested up to:** 4.1  
-**Stable tag:** 2.1.1  
+**Stable tag:** 2.1.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -55,6 +55,10 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Changelog ##
 
+### 2.1.2 - 2015/02/16 ###
+
+* Added the `wc_payment_discounts_apply_discount` filter.
+
 ### 2.1.1 - 2015/02/16 ###
 
 * Added support for WooCommerce 2.3.
@@ -62,7 +66,7 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ### 2.0.3 - 2014/02/24 ###
 
-* Added the wc_payment_discounts_row filter.
+* Added the `wc_payment_discounts_row` filter.
 
 ### 2.0.2 - 2014/02/10 ###
 
@@ -91,9 +95,11 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Upgrade Notice ##
 
-### 2.0.3 ###
+### 2.1.2 ###
 
-* Added the wc_payment_discounts_row filter.
+* Added support for WooCommerce 2.3.
+* Discounts are now applied in the cart contents total, before shipping and taxes.
+* Added the `wc_payment_discounts_apply_discount` filter.
 
 ## License ##
 
