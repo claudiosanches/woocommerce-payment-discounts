@@ -16,6 +16,10 @@ This plugin allows you to add discounts per payment methods.
 Just set a amount (fixed  or %) to the payment methods you want to give discount and is ready!  
 At the moment of payment the customer will be notified of discounts for each payment method.
 
+### Translate ###
+
+You can translate this plugin for your language in [Transifex](https://www.transifex.com/projects/p/woocommerce-discounts-per-payment-method/).
+
 ### Contribute ###
 
 You can contribute to the source code in our [GitHub](https://github.com/claudiosmweb/woocommerce-payment-discounts) page.
