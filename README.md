@@ -2,9 +2,9 @@
 **Contributors:** claudiosanches  
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
-**Requires at least:** 3.5  
-**Tested up to:** 4.0  
-**Stable tag:** 2.0.3  
+**Requires at least:** 4.0  
+**Tested up to:** 4.1  
+**Stable tag:** 2.1.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -55,28 +55,33 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Changelog ##
 
-### 2.0.3 - 24/02/2014 ###
+### 2.1.1 - 2015/02/16 ###
+
+* Added support for WooCommerce 2.3.
+* Discounts are now applied in the cart contents total, before shipping and taxes.
+
+### 2.0.3 - 2014/02/24 ###
 
 * Added the wc_payment_discounts_row filter.
 
-### 2.0.2 - 10/02/2014 ###
+### 2.0.2 - 2014/02/10 ###
 
 * Added de_DE translation by [@chrwald](https://github.com/chrwald).
 
-### 2.0.1 - 28/01/2014 ###
+### 2.0.1 - 2014/01/28 ###
 
 * Fixed a bug that allowed to add the discount in the cart before the customer arrive at the checkout page.
 
-### 2.0.0 - 27/01/2014 ###
+### 2.0.0 - 2014/01/27 ###
 
 * Improved all plugin code.
 * Added option to add the discounts without coupons.
 
-### 1.2.0 - 18/03/2013 ###
+### 1.2.0 - 2013/03/18 ###
 
 * Fixed errors in settings page.
 
-### 1.1.0 - 16/02/2013 ###
+### 1.1.0 - 2013/02/16 ###
 
 * Fixed the problem of infinite reload during the checkout. Thanks to Dani Mello for their confidence in me to solve the problem in her site.
 

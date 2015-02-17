@@ -1,73 +1,73 @@
-# Copyright (C) 2014 WooCommerce Discounts Per Payment Method
+# Copyright (C) 2015 WooCommerce Discounts Per Payment Method
 # This file is distributed under the same license as the WooCommerce Discounts Per Payment Method package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Discounts Per Payment Method 2.0.0\n"
+"Project-Id-Version: WooCommerce Discounts Per Payment Method 2.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/woocommerce-"
 "payment-discounts\n"
-"POT-Creation-Date: 2014-01-27 21:38:44+00:00\n"
+"POT-Creation-Date: 2015-02-17 01:27:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/class-wc-payment-discounts-admin.php:109
-#: admin/class-wc-payment-discounts-admin.php:110
+#: includes/admin/class-wc-payment-discounts-admin.php:56
+#: includes/admin/class-wc-payment-discounts-admin.php:57
 msgid "Payment Discounts"
 msgstr ""
 
-#: admin/class-wc-payment-discounts-admin.php:177
-msgid ""
-"<strong>WooCommerce Discounts Per Payment Method</strong> depends on the "
-"last version of %s to work!"
-msgstr ""
-
-#: admin/class-wc-payment-discounts-admin.php:177
-msgid "WooCommerce"
-msgstr ""
-
-#: admin/class-wc-payment-discounts-admin.php:188
+#: includes/admin/class-wc-payment-discounts-admin.php:118
 msgid ""
 "<strong>WooCommerce Discounts Per Payment Method</strong> works only with "
 "WooCommerce 2.0 or higher, please, upgrade you WooCommerce!"
 msgstr ""
 
-#: admin/class-wc-payment-discounts-admin.php:199
+#: includes/admin/class-wc-payment-discounts-admin.php:127
 msgid ""
 "<strong>WooCommerce Discounts Per Payment Method</strong> has been updated! "
 "Much has changed, you can now configure discount each payment method. %s."
 msgstr ""
 
-#: admin/class-wc-payment-discounts-admin.php:199
+#: includes/admin/class-wc-payment-discounts-admin.php:127
 msgid "Configure now the discounts"
 msgstr ""
 
-#: admin/views/admin.php:21
+#: includes/admin/views/html-admin-settings.php:17
 msgid "Payment Methods"
 msgstr ""
 
-#: admin/views/admin.php:22
+#: includes/admin/views/html-admin-settings.php:18
 msgid ""
 "Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment "
 "gateway."
 msgstr ""
 
-#: admin/views/admin.php:22
+#: includes/admin/views/html-admin-settings.php:18
 msgid "Use zero (0) for not applying discounts."
 msgstr ""
 
-#: public/class-wc-payment-discounts.php:350
+#: includes/class-wc-payment-discounts-add-discount.php:80
 msgid "Discount for %s (%s off)"
 msgstr ""
 
-#: public/class-wc-payment-discounts.php:353
+#: includes/class-wc-payment-discounts-add-discount.php:83
 msgid "Discount for %s"
 msgstr ""
 
-#: public/class-wc-payment-discounts.php:378
+#: includes/class-wc-payment-discounts-add-discount.php:106
 msgid "%s off"
+msgstr ""
+
+#: woocommerce-payment-discounts.php:118
+msgid ""
+"<strong>WooCommerce Discounts Per Payment Method</strong> depends on the "
+"last version of %s to work!"
+msgstr ""
+
+#: woocommerce-payment-discounts.php:118
+msgid "WooCommerce"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -75,7 +75,7 @@ msgid "WooCommerce Discounts Per Payment Method"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/plugins/woocommerce-payment-discounts/"
+msgid "https://github.com/claudiosmweb/woocommerce-payment-discounts"
 msgstr ""
 
 #. Description of the plugin/theme
