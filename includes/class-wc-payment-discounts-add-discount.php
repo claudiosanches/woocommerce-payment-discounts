@@ -30,7 +30,7 @@ class WC_Payment_Discounts_Add_Discount {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Apply the discounts.
-		add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 1, 3 );
+		add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 10 );
 
 		// Display the discount in review order.
 		add_action( 'woocommerce_review_order_before_order_total', array( $this, 'discount_display' ) );
@@ -44,8 +44,6 @@ class WC_Payment_Discounts_Add_Discount {
 
 	/**
 	 * Register and enqueues public-facing JavaScript files.
-	 *
-	 * @return void
 	 */
 	public function enqueue_scripts() {
 		if ( is_checkout() ) {
@@ -56,10 +54,10 @@ class WC_Payment_Discounts_Add_Discount {
 	/**
 	 * Calcule the discount amount.
 	 *
-	 * @param  mixed $value Discount value.
-	 * @param  float $total Cart subtotal.
+	 * @param  string|int|float $value Discount value.
+	 * @param  float            $total Cart subtotal.
 	 *
-	 * @return mixed        Discount amount.
+	 * @return float                   Discount amount.
 	 */
 	protected function calculate_discount( $value, $subtotal ) {
 		if ( strstr( $value, '%' ) ) {
@@ -91,7 +89,7 @@ class WC_Payment_Discounts_Add_Discount {
 	 * @param  string $title Gateway title.
 	 * @param  string $id    Gateway ID.
 	 *
-	 * @return string        [description]
+	 * @return string
 	 */
 	public function gateway_title( $title, $id ) {
 		$settings = get_option( 'woocommerce_payment_discounts' );
@@ -114,9 +112,7 @@ class WC_Payment_Discounts_Add_Discount {
 	/**
 	 * Add discount.
 	 *
-	 * @param  object $cart WC_Cart object.
-	 *
-	 * @return void
+	 * @param WC_Cart $cart
 	 */
 	public function add_discount( $cart ) {
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) || is_cart() ) {
@@ -138,11 +134,11 @@ class WC_Payment_Discounts_Add_Discount {
 				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
-				$this->cart_discount = $this->calculate_discount( $value, $cart->subtotal );
+				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
 				$this->discount_name = $this->discount_name( $value, $gateway );
 
 				// Apply the discount.
-				$cart->discount_total = ( $this->cart_discount + $cart->discount_total );
+				$cart->cart_contents_total = $cart->cart_contents_total - $this->cart_discount;
 			}
 		}
 	}
@@ -174,10 +170,8 @@ class WC_Payment_Discounts_Add_Discount {
 	 * Fix payment method title.
 	 * Remove the discount in the title.
 	 *
-	 * @param  int  $order_id Order ID.
-	 * @param  array $posted  Posted order data.
-	 *
-	 * @return void
+	 * @param int  $order_id Order ID.
+	 * @param array $posted  Posted order data.
 	 */
 	public function fix_payment_method_title( $order_id ) {
 		$old_title = get_post_meta( $order_id, '_payment_method_title', true );
