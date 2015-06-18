@@ -30,16 +30,10 @@ class WC_Payment_Discounts_Add_Discount {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Apply the discounts.
-		add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 10 );
-
-		// Display the discount in review order.
-		add_action( 'woocommerce_review_order_before_order_total', array( $this, 'discount_display' ) );
+		add_action( 'woocommerce_cart_calculate_fees', array( $this, 'add_discount' ), 10 );
 
 		// Display the discount in payment gateways titles.
 		add_filter( 'woocommerce_gateway_title', array( $this, 'gateway_title' ), 10, 2 );
-
-		// Fix salved payment method title and update the cart discount total.
-		add_action( 'woocommerce_checkout_order_processed', array( $this, 'update_order_data' ), 10 );
 	}
 
 	/**
@@ -134,52 +128,15 @@ class WC_Payment_Discounts_Add_Discount {
 				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
-				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
 				$this->discount_name = $this->discount_name( $value, $gateway );
-
+				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
+				
 				// Apply the discount.
-				$cart->cart_contents_total = $cart->cart_contents_total - $this->cart_discount;
+				$cart->add_fee( $this->discount_name, -$this->cart_discount, true);
 			}
 		}
 	}
 
-	/**
-	 * Diplay the discount in checkout order view.
-	 *
-	 * @return string
-	 */
-	public function discount_display() {
-		global $woocommerce;
-
-		if ( version_compare( $woocommerce->version, '2.1', '>=' ) ) {
-			if ( 0 < $this->cart_discount ) {
-				$discount_name  = $this->discount_name;
-				$discount_price = woocommerce_price( $this->cart_discount );
-
-				$html = '<tr class="order-total">';
-					$html .= '<th>' . $discount_name . '</th>';
-					$html .= '<td>-' . $discount_price . '</td>';
-				$html .= '</tr>';
-
-				echo apply_filters( 'wc_payment_discounts_row', $html, $discount_name, $discount_price );
-			}
-		}
-	}
-
-	/**
-	 * Remove the discount in the title and update the cart discount total.
-	 *
-	 * @param int $order_id Order ID.
-	 */
-	public function update_order_data( $order_id ) {
-		$old_title    = get_post_meta( $order_id, '_payment_method_title', true );
-		$new_title    = preg_replace( '/<small>.*<\/small>/', '', $old_title );
-		$old_discount = get_post_meta( $order_id, '_cart_discount', true );
-
-		// Save the fixed title.
-		update_post_meta( $order_id, '_payment_method_title', $new_title );
-		update_post_meta( $order_id, '_cart_discount', $this->cart_discount + $old_discount );
-	}
 }
 
 new WC_Payment_Discounts_Add_Discount();
