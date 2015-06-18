@@ -128,11 +128,10 @@ class WC_Payment_Discounts_Add_Discount {
 				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
-				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
 				$this->discount_name = $this->discount_name( $value, $gateway );
-
+				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
+				
 				// Apply the discount.
-				//$cart->cart_contents_total = $cart->cart_contents_total - $this->cart_discount;
 				$cart->add_fee( $this->discount_name, -$this->cart_discount, true);
 			}
 		}
