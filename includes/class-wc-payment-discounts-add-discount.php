@@ -9,20 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_Payment_Discounts_Add_Discount {
 
 	/**
-	 * Cart discount.
-	 *
-	 * @var int
-	 */
-	protected $cart_discount = 0;
-
-	/**
-	 * Discount name.
-	 *
-	 * @var string
-	 */
-	protected $discount_name = '';
-
-	/**
 	 * Initialize the actions.
 	 */
 	public function __construct() {
@@ -123,16 +109,17 @@ class WC_Payment_Discounts_Add_Discount {
 			$value = $gateways[ $woocommerce->session->chosen_payment_method ];
 
 			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $value, $cart ) ) {
+
 				// Gets the gateway data.
 				$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
 				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
-				$this->discount_name = $this->discount_name( $value, $gateway );
-				$this->cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total );
-				
+				$discount_name = $this->discount_name( $value, $gateway );
+				$cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total ) * -1;
+
 				// Apply the discount.
-				$cart->add_fee( $this->discount_name, -$this->cart_discount, true);
+				$cart->add_fee( $discount_name, $cart_discount, true );
 			}
 		}
 	}
