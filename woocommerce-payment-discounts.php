@@ -44,7 +44,7 @@ class WC_Payment_Discounts {
 		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		if ( function_exists( 'WC' ) ) {
+		if ( defined( 'WC_VERSION' ) && ! version_compare( WC_VERSION, '2.1', '>=' ) ) {
 			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 				$this->admin_includes();
 			}
@@ -115,7 +115,7 @@ class WC_Payment_Discounts {
 	 * @return string Admin notice.
 	 */
 	public function woocommerce_is_missing_notice() {
-		echo '<div class="error"><p>' . sprintf( __( '<strong>WooCommerce Discounts Per Payment Method</strong> depends on the last version of %s to work!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.1 or higher, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 

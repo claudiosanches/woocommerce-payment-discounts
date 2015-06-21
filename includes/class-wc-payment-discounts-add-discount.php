@@ -87,7 +87,7 @@ class WC_Payment_Discounts_Add_Discount {
 			if ( strstr( $discount, '%' ) ) {
 				$value = $discount;
 			} else {
-				$value = woocommerce_price( $discount );
+				$value = wc_price( $discount );
 			}
 
 			$title .= ' <small>(' . sprintf( __( '%s off', 'woocommerce-payment-discounts' ), $value ) . ')</small>';
@@ -106,20 +106,18 @@ class WC_Payment_Discounts_Add_Discount {
 			return;
 		}
 
-		global $woocommerce;
-
 		// Gets the settings.
 		$gateways = get_option( 'woocommerce_payment_discounts' );
 
-		if ( isset( $gateways[ $woocommerce->session->chosen_payment_method ] ) ) {
+		if ( isset( $gateways[ WC()->session->chosen_payment_method ] ) ) {
 			// Gets the gateway discount.
-			$value = $gateways[ $woocommerce->session->chosen_payment_method ];
+			$value = $gateways[ WC()->session->chosen_payment_method ];
 
 			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $value, $cart ) ) {
 
 				// Gets the gateway data.
-				$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
-				$gateway          = $payment_gateways[ $woocommerce->session->chosen_payment_method ];
+				$payment_gateways = WC()->payment_gateways->payment_gateways();
+				$gateway          = $payment_gateways[ WC()->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
 				$discount_name = $this->discount_name( $value, $gateway );

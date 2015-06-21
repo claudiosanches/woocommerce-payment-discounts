@@ -18,11 +18,6 @@ class WC_Payment_Discounts_Admin {
 		// Register plugin settings.
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
-		// Need update message.
-		if ( defined( 'WOOCOMMERCE_VERSION' ) && ! version_compare( WOOCOMMERCE_VERSION, '2.0', '>=' ) ) {
-			add_action( 'admin_notices', array( $this, 'woocommerce_need_update' ) );
-		}
-
 		$this->maybe_update();
 	}
 
@@ -93,21 +88,10 @@ class WC_Payment_Discounts_Admin {
 	 * @return string Settings page content.
 	 */
 	public function display_plugin_admin_page() {
-		global $woocommerce;
-
 		$settings         = get_option( 'woocommerce_payment_discounts' );
-		$payment_gateways = $woocommerce->payment_gateways->payment_gateways();
+		$payment_gateways = WC()->payment_gateways->payment_gateways();
 
 		include_once 'views/html-admin-settings.php';
-	}
-
-	/**
-	 * WooCommerce need update.
-	 *
-	 * @return string Admin notice.
-	 */
-	public function woocommerce_need_update() {
-		echo '<div class="error"><p>' . __( '<strong>WooCommerce Discounts Per Payment Method</strong> works only with WooCommerce 2.0 or higher, please, upgrade you WooCommerce!', 'woocommerce-payment-discounts' ) . '</p></div>';
 	}
 }
 
