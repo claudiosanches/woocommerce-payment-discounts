@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Discounts Per Payment Method\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/woocommerce-payment-discounts/\n"
-"POT-Creation-Date: 2015-02-17 20:32:57+00:00\n"
-"PO-Revision-Date: 2015-02-17 20:29+0000\n"
+"POT-Creation-Date: 2015-06-21 21:53:26+00:00\n"
+"PO-Revision-Date: 2015-06-21 21:53+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/woocommerce-discounts-per-payment-method/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
 
-#: includes/admin/class-wc-payment-discounts-admin.php:48
-#: includes/admin/class-wc-payment-discounts-admin.php:49
+#: includes/admin/class-wc-payment-discounts-admin.php:43
+#: includes/admin/class-wc-payment-discounts-admin.php:44
 msgid "Payment Discounts"
 msgstr "Betalingskortingen"
-
-#: includes/admin/class-wc-payment-discounts-admin.php:110
-msgid ""
-"<strong>WooCommerce Discounts Per Payment Method</strong> works only with "
-"WooCommerce 2.0 or higher, please, upgrade you WooCommerce!"
-msgstr "WooCommerce"
 
 #: includes/admin/views/html-admin-settings.php:17
 msgid "Payment Methods"
@@ -41,31 +35,31 @@ msgstr "Voer een hoeveelheid in (bijvoorbeeld 20.99 of een percentage als 5%) fo
 msgid "Use zero (0) for not applying discounts."
 msgstr "Gebruik nul (0) als u geen korting wilt toepassen."
 
-#: includes/class-wc-payment-discounts-add-discount.php:80
+#: includes/class-wc-payment-discounts-add-discount.php:63
 msgid "Discount for %s (%s off)"
 msgstr "Korting voor %s (%s minder)"
 
-#: includes/class-wc-payment-discounts-add-discount.php:83
+#: includes/class-wc-payment-discounts-add-discount.php:66
 msgid "Discount for %s"
 msgstr "Korting voor %s"
 
-#: includes/class-wc-payment-discounts-add-discount.php:106
+#: includes/class-wc-payment-discounts-add-discount.php:93
 msgid "%s off"
 msgstr "%s minder"
-
-#: woocommerce-payment-discounts.php:118
-msgid ""
-"<strong>WooCommerce Discounts Per Payment Method</strong> depends on the "
-"last version of %s to work!"
-msgstr "<strong>WooCommerce Discounts Per Payment Method</strong> heeft de nieuwste versie van %s nodig om te werken!"
-
-#: woocommerce-payment-discounts.php:118
-msgid "WooCommerce"
-msgstr "WooCommerce"
 
 #. Plugin Name of the plugin/theme
 msgid "WooCommerce Discounts Per Payment Method"
 msgstr "WooCommerce Discounts Per Payment Method"
+
+#: woocommerce-payment-discounts.php:118
+msgid ""
+"works only with %s 2.1 or later, please install or upgrade your "
+"installation!"
+msgstr ""
+
+#: woocommerce-payment-discounts.php:118
+msgid "WooCommerce"
+msgstr "WooCommerce"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/claudiosmweb/woocommerce-payment-discounts"

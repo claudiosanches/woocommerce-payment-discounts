@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Discounts Per Payment Method\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/woocommerce-payment-discounts/\n"
-"POT-Creation-Date: 2015-02-17 20:32:57+00:00\n"
-"PO-Revision-Date: 2015-02-17 20:32+0000\n"
+"POT-Creation-Date: 2015-06-21 21:53:26+00:00\n"
+"PO-Revision-Date: 2015-06-21 21:53+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/woocommerce-discounts-per-payment-method/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -17,16 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
 
-#: includes/admin/class-wc-payment-discounts-admin.php:48
-#: includes/admin/class-wc-payment-discounts-admin.php:49
+#: includes/admin/class-wc-payment-discounts-admin.php:43
+#: includes/admin/class-wc-payment-discounts-admin.php:44
 msgid "Payment Discounts"
 msgstr "Descontos no Pagamento"
-
-#: includes/admin/class-wc-payment-discounts-admin.php:110
-msgid ""
-"<strong>WooCommerce Discounts Per Payment Method</strong> works only with "
-"WooCommerce 2.0 or higher, please, upgrade you WooCommerce!"
-msgstr "<strong>WooCommerce Descontos por Método de Pagamento</strong> dfunciona apenas com WooCommerce 2.0 ou superior, por favor, atualize o seu WooCommerce!"
 
 #: includes/admin/views/html-admin-settings.php:17
 msgid "Payment Methods"
@@ -42,31 +36,31 @@ msgstr "Entre com um valor (ex. 20.99 ou uma porcentagem, 5%) para cada método 
 msgid "Use zero (0) for not applying discounts."
 msgstr "Utilize zero (0) para não aplicar descontos."
 
-#: includes/class-wc-payment-discounts-add-discount.php:80
+#: includes/class-wc-payment-discounts-add-discount.php:63
 msgid "Discount for %s (%s off)"
 msgstr "Desconto para %s (%s de desconto)"
 
-#: includes/class-wc-payment-discounts-add-discount.php:83
+#: includes/class-wc-payment-discounts-add-discount.php:66
 msgid "Discount for %s"
 msgstr "Desconto para %s"
 
-#: includes/class-wc-payment-discounts-add-discount.php:106
+#: includes/class-wc-payment-discounts-add-discount.php:93
 msgid "%s off"
 msgstr "%s de desconto"
-
-#: woocommerce-payment-discounts.php:118
-msgid ""
-"<strong>WooCommerce Discounts Per Payment Method</strong> depends on the "
-"last version of %s to work!"
-msgstr "<strong>WooCommerce Descontos por Método de Pagamento</strong> depende da última versão do %s para funcionar!"
-
-#: woocommerce-payment-discounts.php:118
-msgid "WooCommerce"
-msgstr "WooCommerce"
 
 #. Plugin Name of the plugin/theme
 msgid "WooCommerce Discounts Per Payment Method"
 msgstr "WooCommerce Descontos por Método de Pagamento"
+
+#: woocommerce-payment-discounts.php:118
+msgid ""
+"works only with %s 2.1 or later, please install or upgrade your "
+"installation!"
+msgstr ""
+
+#: woocommerce-payment-discounts.php:118
+msgid "WooCommerce"
+msgstr "WooCommerce"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/claudiosmweb/woocommerce-payment-discounts"

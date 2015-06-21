@@ -3,8 +3,8 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 4.0  
-**Tested up to:** 4.1  
-**Stable tag:** 2.1.4  
+**Tested up to:** 4.2  
+**Stable tag:** 2.2.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -38,7 +38,7 @@ This plugin is released under a GPL license.
 
 ### What is needed to use this plugin? ###
 
-[WooCommerce](http://wordpress.org/extend/plugins/woocommerce/) 2.0 or later.
+[WooCommerce](http://wordpress.org/plugins/woocommerce/) 2.1 or later.
 
 ### The discounts not being applied. How I fix this? ###
 
@@ -47,6 +47,12 @@ This error may be caused by some malfunctioning javascript in your theme. Just f
 ### Need more help or want to make a suggestion? ###
 
 Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-payment-discounts) page.
+
+### Works with "WooCommerce German Market"? ###
+
+Nop, maybe because this plugin uses the "fees" system from WooCommerce to apply discounts and unfortunately the "WooCommerce German Market" plugin does not work very well with it.
+
+If you want to help us work around this problem, please send an [Pull Request on Github](https://github.com/claudiosmweb/woocommerce-payment-discounts).
 
 ## Screenshots ##
 
@@ -58,6 +64,13 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 
 ## Changelog ##
+
+### 2.2.0 - 2015/06/21 ###
+
+* Added new method to apply discount with the WooCommerce "fee" system (Thanks to [Patrick Meister](https://github.com/extrapixel)).
+* Fixed issues with discounts and wrong taxes calculation (see FAQ note about "WooCommerce German Market").
+* Fixed the payment method title on admin (removed the discount value HTML).
+* Removed support for WooCommerce 2.0.x (works great with WooCommerce 2.1.x or later).
 
 ### 2.1.4 - 2015/02/17 ###
 
@@ -107,13 +120,12 @@ Create an issue in our [GitHub](https://github.com/claudiosmweb/woocommerce-paym
 
 ## Upgrade Notice ##
 
-### 2.1.4 ###
+### 2.2.0 ###
 
-* Added support for WooCommerce 2.3.
-* Discounts are now applied in the cart contents total, before shipping and taxes.
-* Added the `wc_payment_discounts_apply_discount` filter.
-* Fixed the plugin update script.
-* Added method to save the discount in the order data.
+* Added new method to apply discount with the WooCommerce "fee" system (Thanks to Patrick Meister).
+* Fixed issues with discounts and wrong taxes calculation (see FAQ note about "WooCommerce German Market").
+* Fixed the payment method title on admin (removed the discount value HTML).
+* Removed support for WooCommerce 2.0.x (works great with WooCommerce 2.1.x or later).
 
 ## License ##
 
