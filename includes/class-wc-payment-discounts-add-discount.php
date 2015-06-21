@@ -19,7 +19,10 @@ class WC_Payment_Discounts_Add_Discount {
 		add_action( 'woocommerce_cart_calculate_fees', array( $this, 'add_discount' ), 10 );
 
 		// Display the discount in payment gateways titles.
-		add_filter( 'woocommerce_gateway_title', array( $this, 'gateway_title' ), 10, 2 );
+		add_filter( 'woocommerce_gateway_title', array( $this, 'payment_method_title' ), 10, 2 );
+
+		// Fix salved payment method title and update the cart discount total.
+		add_action( 'woocommerce_checkout_order_processed', array( $this, 'update_order_data' ), 10 );
 	}
 
 	/**
@@ -64,14 +67,18 @@ class WC_Payment_Discounts_Add_Discount {
 	}
 
 	/**
-	 * Display the discount in gateway title.
+	 * Display the discount in payment method title.
 	 *
 	 * @param  string $title Gateway title.
 	 * @param  string $id    Gateway ID.
 	 *
 	 * @return string
 	 */
-	public function gateway_title( $title, $id ) {
+	public function payment_method_title( $title, $id ) {
+		if ( ! is_checkout() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+			return $title;
+		}
+
 		$settings = get_option( 'woocommerce_payment_discounts' );
 
 		if ( isset( $settings[ $id ] ) && 0 < $settings[ $id ] ) {
@@ -124,6 +131,18 @@ class WC_Payment_Discounts_Add_Discount {
 		}
 	}
 
+	/**
+	 * Remove the discount in the payment method title.
+	 *
+	 * @param int $order_id Order ID.
+	 */
+	public function update_order_data( $order_id ) {
+		$payment_method_title     = get_post_meta( $order_id, '_payment_method_title', true );
+		$new_payment_method_title = preg_replace( '/<small>.*<\/small>/', '', $payment_method_title );
+
+		// Save the new payment method title.
+		update_post_meta( $order_id, '_payment_method_title', $new_payment_method_title );
+	}
 }
 
 new WC_Payment_Discounts_Add_Discount();
