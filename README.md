@@ -4,7 +4,7 @@
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2  
-**Stable tag:** 2.2.0  
+**Stable tag:** 2.2.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -65,6 +65,10 @@ If you want to help us work around this problem, please send an [Pull Request on
 
 ## Changelog ##
 
+### 2.2.1 - 2015/06/21 ###
+
+* Fixed the WooCommerce version check.
+
 ### 2.2.0 - 2015/06/21 ###
 
 * Added new method to apply discount with the WooCommerce "fee" system (Thanks to [Patrick Meister](https://github.com/extrapixel)).
@@ -120,7 +124,7 @@ If you want to help us work around this problem, please send an [Pull Request on
 
 ## Upgrade Notice ##
 
-### 2.2.0 ###
+### 2.2.1 ###
 
 * Added new method to apply discount with the WooCommerce "fee" system (Thanks to Patrick Meister).
 * Fixed issues with discounts and wrong taxes calculation (see FAQ note about "WooCommerce German Market").
