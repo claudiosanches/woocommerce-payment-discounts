@@ -3,7 +3,7 @@ Contributors: claudiosanches
 Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, discount, coupon
 Requires at least: 4.0
-Tested up to: 4.2
+Tested up to: 4.5
 Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -106,18 +106,6 @@ If you want to help us work around this problem, please send an [Pull Request on
 * Improved all plugin code.
 * Added option to add the discounts without coupons.
 
-= 1.2.0 - 2013/03/18 =
-
-* Fixed errors in settings page.
-
-= 1.1.0 - 2013/02/16 =
-
-* Fixed the problem of infinite reload during the checkout. Thanks to Dani Mello for their confidence in me to solve the problem in her site.
-
-= 1.0.0 =
-
-* Initial Release.
-
 == Upgrade Notice ==
 
 = 2.2.1 =
@@ -126,11 +114,3 @@ If you want to help us work around this problem, please send an [Pull Request on
 * Fixed issues with discounts and wrong taxes calculation (see FAQ note about "WooCommerce German Market").
 * Fixed the payment method title on admin (removed the discount value HTML).
 * Removed support for WooCommerce 2.0.x (works great with WooCommerce 2.1.x or later).
-
-== License ==
-
-WooCommerce Discounts Per Payment Method is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-WooCommerce Discounts Per Payment Method is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with WooCommerce Discounts Per Payment Method. If not, see <http://www.gnu.org/licenses/>.
