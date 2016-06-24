@@ -1,8 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[woocommerce-discounts-per-payment-method.woocommerce-payment-discounts]
-file_filter = languages/woocommerce-payment-discounts-<lang>.po
-source_file = languages/woocommerce-payment-discounts.pot
-source_lang = en
-type = PO
