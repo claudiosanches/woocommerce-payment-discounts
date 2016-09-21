@@ -3,8 +3,8 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** woocommerce, discount, coupon  
 **Requires at least:** 4.0  
-**Tested up to:** 4.5  
-**Stable tag:** 2.2.1  
+**Tested up to:** 4.6  
+**Stable tag:** 2.2.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -61,6 +61,10 @@ If you want to help us work around this problem, please send an [Pull Request on
 
 ## Changelog ##
 
+### 2.2.2 - 2016/09/20 ###
+
+* Fixed discount when taxes are applied.
+
 ### 2.2.1 - 2015/06/21 ###
 
 * Fixed the WooCommerce version check.
@@ -108,9 +112,6 @@ If you want to help us work around this problem, please send an [Pull Request on
 
 ## Upgrade Notice ##
 
-### 2.2.1 ###
+### 2.2.2 ###
 
-* Added new method to apply discount with the WooCommerce "fee" system (Thanks to Patrick Meister).
-* Fixed issues with discounts and wrong taxes calculation (see FAQ note about "WooCommerce German Market").
-* Fixed the payment method title on admin (removed the discount value HTML).
-* Removed support for WooCommerce 2.0.x (works great with WooCommerce 2.1.x or later).
+* Fixed discount when taxes are applied.
