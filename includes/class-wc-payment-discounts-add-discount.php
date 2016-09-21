@@ -124,7 +124,7 @@ class WC_Payment_Discounts_Add_Discount {
 				$cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total ) * -1;
 
 				// Apply the discount.
-				$cart->add_fee( $discount_name, $cart_discount, true );
+				$cart->add_fee( $discount_name, $cart_discount, false );
 			}
 		}
 	}
