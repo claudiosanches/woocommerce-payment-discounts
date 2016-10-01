@@ -14,17 +14,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<form method="post" action="options.php">
 		<?php settings_fields( 'woocommerce_payment_discounts_group' ); ?>
-		<h3><?php _e( 'Payment Methods', 'woocommerce-payment-discounts' ); ?></h3>
-		<p><?php _e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', 'woocommerce-payment-discounts' ); ?><br /><?php _e( 'Use zero (0) for not applying discounts.', 'woocommerce-payment-discounts' ); ?></p>
-		<table class="form-table">
+		<h3><?php esc_html_e( 'Payment Methods', 'woocommerce-payment-discounts' ); ?></h3>
+		<p><?php esc_html_e( 'Enter an amount (e.g. 20.99, or a percentage, e.g. 5%) for each payment gateway.', 'woocommerce-payment-discounts' ); ?><br /><?php esc_html_e( 'Use zero (0) for not applying discounts.', 'woocommerce-payment-discounts' ); ?></p>
+		<table class="wc_gateways widefat" cellspacing="0">
+			<thead>
+				<tr>
+					<th style="width: 20%"><strong><?php esc_html_e( 'Payment method', 'woocommerce-payment-discounts' ); ?></strong></th>
+					<th style="width: 20%"><strong><?php esc_html_e( 'Discount amount', 'woocommerce-payment-discounts' ); ?></strong></th>
+					<th><strong><?php esc_html_e( 'Include tax in the discount amount', 'woocommerce-payment-discounts' ); ?></strong></th>
+				</tr>
+			</thead>
 			<tbody>
 				<?php
 					foreach ( $payment_gateways as $gateway ) :
-						$current = isset( $settings[ $gateway->id ] ) ? $settings[ $gateway->id ] : '0';
+						$amount      = isset( $settings[ $gateway->id ]['amount'] ) ? $settings[ $gateway->id ]['amount'] : '0';
+						$include_tax = isset( $settings[ $gateway->id ]['include_tax'] ) ? $settings[ $gateway->id ]['include_tax'] : 'yes';
 				?>
-					<tr valign="top">
-						<th scope="row"><label for="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>"><?php echo esc_attr( $gateway->title ); ?></label></th>
-						<td><input type="text" class="input-text regular-input" value="<?php echo esc_attr( $current ); ?>" id="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>" name="woocommerce_payment_discounts[<?php echo esc_attr( $gateway->id ); ?>]" /></td>
+					<tr>
+						<td>
+							<label for="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>_amount"><strong><?php echo esc_attr( $gateway->title ); ?></strong></label>
+						</td>
+						<td>
+							<input type="text" class="input-text regular-input" value="<?php echo esc_attr( $amount ); ?>" id="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>_amount" name="woocommerce_payment_discounts[<?php echo esc_attr( $gateway->id ); ?>][amount]" />
+						</td>
+						<td>
+							<label><input type="checkbox" value="yes" id="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>_" name="woocommerce_payment_discounts[<?php echo esc_attr( $gateway->id ); ?>][include_tax]" <?php checked( 'yes', $include_tax, true ); ?>/> <?php esc_html_e( 'Enable/Disable', 'woocommerce-payment-discounts' ) ?></label>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

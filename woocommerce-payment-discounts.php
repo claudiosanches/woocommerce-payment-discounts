@@ -28,7 +28,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.2.2';
+	const VERSION = '2.3.0';
 
 	/**
 	 * Instance of this class.

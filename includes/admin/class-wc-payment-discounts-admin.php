@@ -28,7 +28,30 @@ class WC_Payment_Discounts_Admin {
 		$current_version = get_option( 'woocommerce_payment_discounts_version', '0' );
 
 		if ( ! version_compare( $current_version, WC_Payment_Discounts::VERSION, '>=' ) ) {
+			// Upgrade to 2.3.0.
+			if ( version_compare( $current_version, '2.3.0', '<' ) ) {
+				$this->upgrade_to_230();
+			}
+
 			update_option( 'woocommerce_payment_discounts_version', WC_Payment_Discounts::VERSION );
+		}
+	}
+
+	/**
+	 * Upgrade to 2.3.0.
+	 */
+	private function upgrade_to_230() {
+		if ( $old_options = get_option( 'woocommerce_payment_discounts' ) ) {
+			$new_options = array();
+
+			foreach ( $old_options as $key => $value ) {
+				$new_options[ $key ] = array(
+					'amount'      => $value,
+					'include_tax' => 'yes',
+				);
+			}
+
+			update_option( 'woocommerce_payment_discounts', $new_options );
 		}
 	}
 
@@ -68,14 +91,22 @@ class WC_Payment_Discounts_Admin {
 		$output = array();
 
 		foreach ( $options as $key => $value ) {
-			if ( isset( $options[ $key ] ) ) {
-				if ( strstr( $value, '%' ) ) {
-					$value = str_replace( '%', '', floatval( $value ) ) . '%';
+			// Validate amount.
+			$output[ $key ]['amount'] = 0;
+			if ( isset( $value['amount'] ) ) {
+				if ( strstr( $value['amount'], '%' ) ) {
+					$amount = str_replace( '%', '', floatval( $value['amount'] ) ) . '%';
 				} else {
-					$value = floatval( $value );
+					$amount = floatval( $value['amount'] );
 				}
 
-				$output[ $key ] = $value;
+				$output[ $key ]['amount'] = $amount;
+			}
+
+			// Validate include tax.
+			$output[ $key ]['include_tax'] = 'no';
+			if ( isset( $value['include_tax'] ) ) {
+				$output[ $key ]['include_tax'] = 'yes';
 			}
 		}
 

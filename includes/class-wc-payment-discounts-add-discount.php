@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -37,30 +37,30 @@ class WC_Payment_Discounts_Add_Discount {
 	/**
 	 * Calcule the discount amount.
 	 *
-	 * @param  string|int|float $value Discount value.
+	 * @param  string|int|float $amount Discount value.
 	 * @param  float            $total Cart subtotal.
 	 *
 	 * @return float                   Discount amount.
 	 */
-	protected function calculate_discount( $value, $subtotal ) {
-		if ( strstr( $value, '%' ) ) {
-			$value = ( $subtotal / 100 ) * str_replace( '%', '', $value );
+	protected function calculate_discount( $amount, $subtotal ) {
+		if ( strstr( $amount, '%' ) ) {
+			$amount = ( $subtotal / 100 ) * str_replace( '%', '', $amount );
 		}
 
-		return $value;
+		return $amount;
 	}
 
 	/**
 	 * Generate the discount name.
 	 *
-	 * @param  mixed  $value Discount amount
-	 * @param  object $value Gateway data.
+	 * @param  mixed  $amount  Discount amount
+	 * @param  object $gateway Gateway data.
 	 *
-	 * @return string        Discount name.
+	 * @return string          Discount name.
 	 */
-	protected function discount_name( $value, $gateway ) {
-		if ( strstr( $value, '%' ) ) {
-			return sprintf( __( 'Discount for %s (%s off)', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ), $value );
+	protected function discount_name( $amount, $gateway ) {
+		if ( strstr( $amount, '%' ) ) {
+			return sprintf( __( 'Discount for %s (%s off)', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ), $amount );
 		}
 
 		return sprintf( __( 'Discount for %s', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ) );
@@ -81,13 +81,13 @@ class WC_Payment_Discounts_Add_Discount {
 
 		$settings = get_option( 'woocommerce_payment_discounts' );
 
-		if ( isset( $settings[ $id ] ) && 0 < $settings[ $id ] ) {
-			$discount = $settings[ $id ];
+		if ( isset( $settings[ $id ]['amount'] ) && 0 < $settings[ $id ]['amount'] ) {
+			$amount = $settings[ $id ]['amount'];
 
-			if ( strstr( $discount, '%' ) ) {
-				$value = $discount;
+			if ( strstr( $amount, '%' ) ) {
+				$value = $amount;
 			} else {
-				$value = wc_price( $discount );
+				$value = wc_price( $amount );
 			}
 
 			$title .= ' <small>(' . sprintf( __( '%s off', 'woocommerce-payment-discounts' ), $value ) . ')</small>';
@@ -99,7 +99,7 @@ class WC_Payment_Discounts_Add_Discount {
 	/**
 	 * Add discount.
 	 *
-	 * @param WC_Cart $cart
+	 * @param WC_Cart $cart Cart object.
 	 */
 	public function add_discount( $cart ) {
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) || is_cart() ) {
@@ -107,24 +107,25 @@ class WC_Payment_Discounts_Add_Discount {
 		}
 
 		// Gets the settings.
-		$gateways = get_option( 'woocommerce_payment_discounts' );
+		$settings = get_option( 'woocommerce_payment_discounts' );
 
-		if ( isset( $gateways[ WC()->session->chosen_payment_method ] ) ) {
+		if ( isset( $settings[ WC()->session->chosen_payment_method ]['amount'] ) ) {
 			// Gets the gateway discount.
-			$value = $gateways[ WC()->session->chosen_payment_method ];
+			$amount      = $settings[ WC()->session->chosen_payment_method ]['amount'];
+			$include_tax = 'yes' === $settings[ WC()->session->chosen_payment_method ]['include_tax'];
 
-			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $value, $cart ) ) {
+			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $amount, $cart ) ) {
 
 				// Gets the gateway data.
 				$payment_gateways = WC()->payment_gateways->payment_gateways();
 				$gateway          = $payment_gateways[ WC()->session->chosen_payment_method ];
 
 				// Generate the discount amount and title.
-				$discount_name = $this->discount_name( $value, $gateway );
-				$cart_discount = $this->calculate_discount( $value, $cart->cart_contents_total ) * -1;
+				$discount_name = $this->discount_name( $amount, $gateway );
+				$cart_discount = $this->calculate_discount( $amount, $cart->cart_contents_total ) * -1;
 
 				// Apply the discount.
-				$cart->add_fee( $discount_name, $cart_discount, false );
+				$cart->add_fee( $discount_name, $cart_discount, $include_tax );
 			}
 		}
 	}
