@@ -5,7 +5,7 @@
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: Claudio Sanches
  * Author URI: https://claudiosmweb.com/
- * Version: 2.2.2
+ * Version: 2.3.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages/
@@ -71,8 +71,6 @@ class WC_Payment_Discounts {
 
 	/**
 	 * Includes.
-	 *
-	 * @return void
 	 */
 	protected function includes() {
 		include_once( 'includes/class-wc-payment-discounts-add-discount.php' );
@@ -80,8 +78,6 @@ class WC_Payment_Discounts {
 
 	/**
 	 * Admin includes.
-	 *
-	 * @return void
 	 */
 	protected function admin_includes() {
 		include_once( 'includes/admin/class-wc-payment-discounts-admin.php' );
@@ -89,8 +85,6 @@ class WC_Payment_Discounts {
 
 	/**
 	 * Fired for each blog when the plugin is activated.
-	 *
-	 * @return void
 	 */
 	public static function activate() {
 		add_option( 'woocommerce_payment_discounts', array() );
@@ -99,14 +93,9 @@ class WC_Payment_Discounts {
 
 	/**
 	 * Load the plugin text domain for translation.
-	 *
-	 * @return void
 	 */
 	public function load_plugin_textdomain() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-payment-discounts' );
-
-		load_textdomain( 'woocommerce-payment-discounts', trailingslashit( WP_LANG_DIR ) . 'woocommerce-payment-discounts/woocommerce-payment-discounts-' . $locale . '.mo' );
-		load_plugin_textdomain( 'woocommerce-payment-discounts', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'woocommerce-payment-discounts', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**

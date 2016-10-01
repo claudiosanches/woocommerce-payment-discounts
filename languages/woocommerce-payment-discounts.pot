@@ -2,10 +2,10 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Discounts Per Payment Method 2.2.2\n"
+"Project-Id-Version: WooCommerce Discounts Per Payment Method 2.3.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/plugins/woocommerce-payment-discounts/\n"
-"POT-Creation-Date: 2016-09-21 01:50:28+00:00\n"
+"POT-Creation-Date: 2016-10-01 12:14:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,8 +14,8 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
 
-#: includes/admin/class-wc-payment-discounts-admin.php:43
-#: includes/admin/class-wc-payment-discounts-admin.php:44
+#: includes/admin/class-wc-payment-discounts-admin.php:66
+#: includes/admin/class-wc-payment-discounts-admin.php:67
 msgid "Payment Discounts"
 msgstr ""
 
@@ -31,6 +31,22 @@ msgstr ""
 
 #: includes/admin/views/html-admin-settings.php:18
 msgid "Use zero (0) for not applying discounts."
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:22
+msgid "Payment method"
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:23
+msgid "Discount amount"
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:24
+msgid "Include tax in the discount amount"
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:41
+msgid "Enable/Disable"
 msgstr ""
 
 #: includes/class-wc-payment-discounts-add-discount.php:63
@@ -49,13 +65,13 @@ msgstr ""
 msgid "WooCommerce Discounts Per Payment Method"
 msgstr ""
 
-#: woocommerce-payment-discounts.php:118
+#: woocommerce-payment-discounts.php:107
 msgid ""
 "works only with %s 2.1 or later, please install or upgrade your "
 "installation!"
 msgstr ""
 
-#: woocommerce-payment-discounts.php:118
+#: woocommerce-payment-discounts.php:107
 msgid "WooCommerce"
 msgstr ""
 
