@@ -47,7 +47,7 @@ class WC_Payment_Discounts_Add_Discount {
 			$amount = ( $subtotal / 100 ) * str_replace( '%', '', $amount );
 		}
 
-		return apply_filters( 'wc_payment_discounts_amount', $amount ); $amount;
+		return apply_filters( 'wc_payment_discounts_amount', $amount );
 	}
 
 	/**
