@@ -60,10 +60,12 @@ class WC_Payment_Discounts_Add_Discount {
 	 */
 	protected function discount_name( $amount, $gateway ) {
 		if ( strstr( $amount, '%' ) ) {
-			return sprintf( __( 'Discount for %s (%s off)', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ), $amount );
+			$discount_name = sprintf( __( 'Discount for %s (%s off)', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ), $amount );
+			return apply_filters( 'wc_payment_discounts_discount_name_percent', $discount_name, $amount, $gateway);
 		}
 
-		return sprintf( __( 'Discount for %s', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ) );
+		$discount_name =  sprintf( __( 'Discount for %s', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ) );
+		return apply_filters( 'wc_payment_discounts_discount_name', $discount_name, $amount, $gateway );
 	}
 
 	/**
