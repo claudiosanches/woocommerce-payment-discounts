@@ -53,10 +53,10 @@ If you want to help us work around this problem, please send an [Pull Request on
 ## Screenshots ##
 
 ### 1. Settings page. ###
-![1. Settings page.](http://ps.w.org/woocommerce-discounts-per-payment-method/assets/screenshot-1.png)
+![1.Settings page.](https://ps.w.org/woocommerce-payment-discounts/assets/screenshot-1.png)
 
 ### 2. Plugin in action on checkout page. ###
-![2. Plugin in action on checkout page.](http://ps.w.org/woocommerce-discounts-per-payment-method/assets/screenshot-2.png)
+![2. Plugin in action on checkout page.](https://ps.w.org/woocommerce-payment-discounts/assets/screenshot-2.png)
 
 
 ## Changelog ##
