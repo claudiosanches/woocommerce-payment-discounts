@@ -73,14 +73,15 @@ class WC_Payment_Discounts {
 	 * Includes.
 	 */
 	protected function includes() {
-		include_once( 'includes/class-wc-payment-discounts-add-discount.php' );
+		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-coupons.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-add-discount.php';
 	}
 
 	/**
 	 * Admin includes.
 	 */
 	protected function admin_includes() {
-		include_once( 'includes/admin/class-wc-payment-discounts-admin.php' );
+		include_once dirname( __FILE__ ) . '/includes/admin/class-wc-payment-discounts-admin.php';
 	}
 
 	/**
