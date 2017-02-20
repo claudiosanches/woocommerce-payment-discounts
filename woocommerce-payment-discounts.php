@@ -5,7 +5,7 @@
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: Claudio Sanches
  * Author URI: https://claudiosmweb.com/
- * Version: 2.3.0
+ * Version: 2.4.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages/
@@ -28,7 +28,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.3.0';
+	const VERSION = '2.4.0';
 
 	/**
 	 * Instance of this class.
@@ -44,7 +44,7 @@ class WC_Payment_Discounts {
 		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.7', '>=' ) ) {
 			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 				$this->admin_includes();
 			}
@@ -105,7 +105,7 @@ class WC_Payment_Discounts {
 	 * @return string Admin notice.
 	 */
 	public function woocommerce_is_missing_notice() {
-		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.1 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.7 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 
