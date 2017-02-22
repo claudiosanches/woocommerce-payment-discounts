@@ -74,7 +74,7 @@ class WC_Payment_Discounts {
 	 */
 	protected function includes() {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-coupons.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-add-discount.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-apply-discount.php';
 	}
 
 	/**

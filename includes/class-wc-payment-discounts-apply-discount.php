@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add discount.
  */
-class WC_Payment_Discounts_Add_Discount {
+class WC_Payment_Discounts_Apply_Discount {
 
 	/**
 	 * Initialize the actions.
@@ -132,4 +132,4 @@ class WC_Payment_Discounts_Add_Discount {
 	}
 }
 
-new WC_Payment_Discounts_Add_Discount();
+new WC_Payment_Discounts_Apply_Discount();
