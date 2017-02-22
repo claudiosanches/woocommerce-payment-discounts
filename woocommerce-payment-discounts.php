@@ -45,11 +45,11 @@ class WC_Payment_Discounts {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.7', '>=' ) ) {
+			$this->includes();
+
 			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 				$this->admin_includes();
 			}
-
-			$this->includes();
 		} else {
 			add_action( 'admin_notices', array( $this, 'woocommerce_is_missing_notice' ) );
 		}

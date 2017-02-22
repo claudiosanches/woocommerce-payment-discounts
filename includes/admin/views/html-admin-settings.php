@@ -20,8 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<thead>
 				<tr>
 					<th style="width: 20%"><strong><?php esc_html_e( 'Payment method', 'woocommerce-payment-discounts' ); ?></strong></th>
-					<th style="width: 20%"><strong><?php esc_html_e( 'Discount amount', 'woocommerce-payment-discounts' ); ?></strong></th>
-					<th><strong><?php esc_html_e( 'Include tax in the discount amount', 'woocommerce-payment-discounts' ); ?></strong></th>
+					<th><strong><?php esc_html_e( 'Discount amount', 'woocommerce-payment-discounts' ); ?></strong></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,9 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</td>
 						<td>
 							<input type="text" class="input-text regular-input" value="<?php echo esc_attr( $amount ); ?>" id="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>_amount" name="woocommerce_payment_discounts[<?php echo esc_attr( $gateway->id ); ?>][amount]" />
-						</td>
-						<td>
-							<label><input type="checkbox" value="yes" id="woocommerce_payment_discounts_<?php echo esc_attr( $gateway->id ); ?>_" name="woocommerce_payment_discounts[<?php echo esc_attr( $gateway->id ); ?>][include_tax]" <?php checked( 'yes', $include_tax, true ); ?>/> <?php esc_html_e( 'Enable/Disable', 'woocommerce-payment-discounts' ) ?></label>
 						</td>
 					</tr>
 				<?php endforeach; ?>
