@@ -1,10 +1,18 @@
 <?php
+/**
+ * Apply discounts on checkout
+ *
+ * @package WC_Payment_Discounts/Classes
+ * @since   3.0.0
+ * @version 3.0.0
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * Add discount.
+ * WC_Payment_Discounts_Apply_Discount class.
  */
 class WC_Payment_Discounts_Apply_Discount {
 

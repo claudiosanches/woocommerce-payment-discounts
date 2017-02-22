@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WooCommerce Discounts Per Payment Method
- * Plugin URI: https://github.com/claudiosmweb/woocommerce-payment-discounts
+ * Plugin URI: https://github.com/claudiosanches/woocommerce-payment-discounts
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: Claudio Sanches
  * Author URI: https://claudiosmweb.com/
- * Version: 2.4.0
+ * Version: 3.0.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages/
@@ -28,7 +28,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.4.0';
+	const VERSION = '3.0.0';
 
 	/**
 	 * Instance of this class.

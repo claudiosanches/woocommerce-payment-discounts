@@ -1,10 +1,18 @@
 <?php
+/**
+ * Admin settings
+ *
+ * @package WC_Payment_Discounts/Classes
+ * @since   3.0.0
+ * @version 3.0.0
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
- * WC_Payment_Discounts_Admin class
+ * WC_Payment_Discounts_Admin class.
  */
 class WC_Payment_Discounts_Admin {
 

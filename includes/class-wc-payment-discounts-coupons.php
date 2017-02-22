@@ -3,8 +3,8 @@
  * Handle coupons
  *
  * @package WC_Payment_Discounts/Classes
- * @since   2.4.0
- * @version 2.4.0
+ * @since   3.0.0
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
