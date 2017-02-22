@@ -26,8 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<tbody>
 				<?php
 					foreach ( $payment_gateways as $gateway ) :
-						$amount      = isset( $settings[ $gateway->id ]['amount'] ) ? $settings[ $gateway->id ]['amount'] : '0';
-						$include_tax = isset( $settings[ $gateway->id ]['include_tax'] ) ? $settings[ $gateway->id ]['include_tax'] : 'yes';
+						$amount = isset( $settings[ $gateway->id ]['amount'] ) ? wc_format_localized_price( $settings[ $gateway->id ]['amount'] ) : '0';
 				?>
 					<tr>
 						<td>

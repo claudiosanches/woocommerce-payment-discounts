@@ -98,9 +98,9 @@ class WC_Payment_Discounts_Admin {
 			$output[ $key ]['amount'] = 0;
 			if ( isset( $value['amount'] ) ) {
 				if ( strstr( $value['amount'], '%' ) ) {
-					$amount = str_replace( '%', '', floatval( $value['amount'] ) ) . '%';
+					$amount = str_replace( '%', '', floatval( wc_format_decimal( $value['amount'] ) ) ) . '%';
 				} else {
-					$amount = floatval( $value['amount'] );
+					$amount = floatval( wc_format_decimal( $value['amount'] ) );
 				}
 
 				$output[ $key ]['amount'] = $amount;
