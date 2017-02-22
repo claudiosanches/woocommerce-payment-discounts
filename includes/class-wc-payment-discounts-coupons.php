@@ -17,6 +17,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_Payment_Discounts_Coupons {
 
 	/**
+	 * Generate coupon code.
+	 *
+	 * @param  string $payment_method Payment method ID.
+	 *
+	 * @return string
+	 */
+	protected static function generate_code( $payment_method ) {
+		$code = 'wcpd_' . $payment_method . '_' . wp_generate_password( 20, false );
+
+		// Remove "_" and empty spaces.
+		$payment_method = str_replace( ' ', '', $payment_method );
+
+		return $code;
+	}
+
+	/**
 	 * Get coupon by payment method ID.
 	 *
 	 * @param  string $payment_method Payment method ID.
@@ -52,7 +68,7 @@ class WC_Payment_Discounts_Coupons {
 	public static function create_coupon( $payment_method, $data ) {
 		$coupon = new WC_Coupon();
 
-		$code   = wc_format_coupon_code( $payment_method . '_' . wp_generate_password( 30, true, true ) );
+		$code   = wc_format_coupon_code( self::generate_code( $payment_method ) );
 		$type   = false !== strstr( $data['amount'], '%' ) ? 'percent' : 'fixed_cart';
 		$amount = (float) trim( $data['amount'], '%' );
 
