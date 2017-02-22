@@ -105,6 +105,9 @@ class WC_Payment_Discounts_Apply_Discount {
 		// Gets the settings.
 		$settings = get_option( 'woocommerce_payment_discounts' );
 
+		// Always set coupons calculation as enabled.
+		add_filter( 'woocommerce_coupons_enabled', '__return_true' );
+
 		if ( isset( $settings[ WC()->session->chosen_payment_method ]['amount'] ) ) {
 			// Gets the gateway discount.
 			$amount = $settings[ WC()->session->chosen_payment_method ]['amount'];
