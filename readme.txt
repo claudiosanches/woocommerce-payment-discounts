@@ -8,13 +8,13 @@ Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds discounts on specific payment methods in WooCommerce.
+Adds discounts for specific payment methods in WooCommerce.
 
 == Description ==
 
 This plugin allows you to add discounts per payment methods.  
 Just set a amount (fixed  or %) to the payment methods you want to give discount and is ready!  
-At the moment of payment the customer will be notified of discounts for each payment method.
+At the moment of payment the customer will be able to see each discount available for each payment method.
 
 Note that this plugin works only with WooCommerce 3.0 or later.
 
@@ -30,9 +30,9 @@ You can contribute to the source code in our [GitHub](https://github.com/claudio
 
 = The discounts not being applied. How I fix this? =
 
-This error may be caused by some malfunctioning javascript in your theme. Just fix it!
+This error may be caused by some malfunctioning javascript in your theme. Just fix it in your theme.
 
-= Need more help or want to make a suggestion? =
+= Need help or want to make a suggestion? =
 
 Create an issue in our [GitHub](https://github.com/claudiosanches/woocommerce-payment-discounts) page.
 
