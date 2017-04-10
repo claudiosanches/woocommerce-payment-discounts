@@ -1,10 +1,18 @@
 <?php
+/**
+ * Admin settings
+ *
+ * @package WC_Payment_Discounts/Classes
+ * @since   3.0.0
+ * @version 3.0.0
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
- * WC_Payment_Discounts_Admin class
+ * WC_Payment_Discounts_Admin class.
  */
 class WC_Payment_Discounts_Admin {
 
@@ -46,8 +54,7 @@ class WC_Payment_Discounts_Admin {
 
 			foreach ( $old_options as $key => $value ) {
 				$new_options[ $key ] = array(
-					'amount'      => $value,
-					'include_tax' => 'yes',
+					'amount' => $value,
 				);
 			}
 
@@ -57,8 +64,6 @@ class WC_Payment_Discounts_Admin {
 
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
-	 *
-	 * @return void
 	 */
 	public function add_plugin_admin_menu() {
 		add_submenu_page(
@@ -73,8 +78,6 @@ class WC_Payment_Discounts_Admin {
 
 	/**
 	 * Register plugin settings.
-	 *
-	 * @return void
 	 */
 	public function register_settings() {
 		register_setting( 'woocommerce_payment_discounts_group', 'woocommerce_payment_discounts', array( $this, 'validate_settings' ) );
@@ -85,7 +88,7 @@ class WC_Payment_Discounts_Admin {
 	 *
 	 * @param  array $options Submitted values.
 	 *
-	 * @return array          Fixed values.
+	 * @return array          Sanitized values.
 	 */
 	public function validate_settings( $options ) {
 		$output = array();
@@ -95,19 +98,19 @@ class WC_Payment_Discounts_Admin {
 			$output[ $key ]['amount'] = 0;
 			if ( isset( $value['amount'] ) ) {
 				if ( strstr( $value['amount'], '%' ) ) {
-					$amount = str_replace( '%', '', floatval( $value['amount'] ) ) . '%';
+					$amount = str_replace( '%', '', floatval( wc_format_decimal( $value['amount'] ) ) ) . '%';
 				} else {
-					$amount = floatval( $value['amount'] );
+					$amount = floatval( wc_format_decimal( $value['amount'] ) );
 				}
 
 				$output[ $key ]['amount'] = $amount;
 			}
 
-			// Validate include tax.
-			$output[ $key ]['include_tax'] = 'no';
-			if ( isset( $value['include_tax'] ) ) {
-				$output[ $key ]['include_tax'] = 'yes';
-			}
+			// Save coupon.
+			$data = array(
+				'amount' => $output[ $key ]['amount'],
+			);
+			WC_Payment_Discounts_Coupons::update_coupon( $key, $data );
 		}
 
 		return $output;
@@ -122,7 +125,7 @@ class WC_Payment_Discounts_Admin {
 		$settings         = get_option( 'woocommerce_payment_discounts' );
 		$payment_gateways = WC()->payment_gateways->payment_gateways();
 
-		include_once 'views/html-admin-settings.php';
+		include dirname( __FILE__ ) . '/views/html-admin-settings.php';
 	}
 }
 

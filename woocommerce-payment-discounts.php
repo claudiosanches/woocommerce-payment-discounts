@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WooCommerce Discounts Per Payment Method
- * Plugin URI: https://github.com/claudiosmweb/woocommerce-payment-discounts
+ * Plugin URI: https://github.com/claudiosanches/woocommerce-payment-discounts
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author: Claudio Sanches
  * Author URI: https://claudiosmweb.com/
- * Version: 2.3.0
+ * Version: 3.0.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages/
@@ -28,7 +28,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.3.0';
+	const VERSION = '3.0.0';
 
 	/**
 	 * Instance of this class.
@@ -44,12 +44,12 @@ class WC_Payment_Discounts {
 		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.7', '>=' ) ) {
+			$this->includes();
+
 			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 				$this->admin_includes();
 			}
-
-			$this->includes();
 		} else {
 			add_action( 'admin_notices', array( $this, 'woocommerce_is_missing_notice' ) );
 		}
@@ -73,14 +73,15 @@ class WC_Payment_Discounts {
 	 * Includes.
 	 */
 	protected function includes() {
-		include_once( 'includes/class-wc-payment-discounts-add-discount.php' );
+		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-coupons.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-payment-discounts-apply-discount.php';
 	}
 
 	/**
 	 * Admin includes.
 	 */
 	protected function admin_includes() {
-		include_once( 'includes/admin/class-wc-payment-discounts-admin.php' );
+		include_once dirname( __FILE__ ) . '/includes/admin/class-wc-payment-discounts-admin.php';
 	}
 
 	/**
@@ -104,7 +105,7 @@ class WC_Payment_Discounts {
 	 * @return string Admin notice.
 	 */
 	public function woocommerce_is_missing_notice() {
-		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.1 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.7 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 

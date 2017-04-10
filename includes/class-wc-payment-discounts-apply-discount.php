@@ -1,12 +1,20 @@
 <?php
+/**
+ * Apply discounts on checkout
+ *
+ * @package WC_Payment_Discounts/Classes
+ * @since   3.0.0
+ * @version 3.0.0
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * Add discount.
+ * WC_Payment_Discounts_Apply_Discount class.
  */
-class WC_Payment_Discounts_Add_Discount {
+class WC_Payment_Discounts_Apply_Discount {
 
 	/**
 	 * Initialize the actions.
@@ -16,7 +24,7 @@ class WC_Payment_Discounts_Add_Discount {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Apply the discounts.
-		add_action( 'woocommerce_cart_calculate_fees', array( $this, 'add_discount' ), 10 );
+		add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 10 );
 
 		// Display the discount in payment gateways titles.
 		add_filter( 'woocommerce_gateway_title', array( $this, 'payment_method_title' ), 10, 2 );
@@ -32,38 +40,6 @@ class WC_Payment_Discounts_Add_Discount {
 		if ( is_checkout() ) {
 			wp_enqueue_script( 'woocommerce-payment-discounts', plugins_url( 'assets/js/update-checkout.min.js', plugin_dir_path( __FILE__ ) ), array( 'wc-checkout' ), WC_Payment_Discounts::VERSION );
 		}
-	}
-
-	/**
-	 * Calcule the discount amount.
-	 *
-	 * @param  string|int|float $amount Discount value.
-	 * @param  float            $total Cart subtotal.
-	 *
-	 * @return float                   Discount amount.
-	 */
-	protected function calculate_discount( $amount, $subtotal ) {
-		if ( strstr( $amount, '%' ) ) {
-			$amount = ( $subtotal / 100 ) * str_replace( '%', '', $amount );
-		}
-
-		return $amount;
-	}
-
-	/**
-	 * Generate the discount name.
-	 *
-	 * @param  mixed  $amount  Discount amount
-	 * @param  object $gateway Gateway data.
-	 *
-	 * @return string          Discount name.
-	 */
-	protected function discount_name( $amount, $gateway ) {
-		if ( strstr( $amount, '%' ) ) {
-			return sprintf( __( 'Discount for %s (%s off)', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ), $amount );
-		}
-
-		return sprintf( __( 'Discount for %s', 'woocommerce-payment-discounts' ), esc_attr( $gateway->title ) );
 	}
 
 	/**
@@ -97,6 +73,26 @@ class WC_Payment_Discounts_Add_Discount {
 	}
 
 	/**
+	 * Remove payment coupons.
+	 *
+	 * @param  WC_Cart $cart Cart object.
+	 * @param  string  $skip Payment method ID to skip during remotion.
+	 * @return bool
+	 */
+	protected function remove_payment_coupons( $cart, $skip = '' ) {
+		$removed = false;
+
+		foreach ( $cart->get_applied_coupons() as $code ) {
+			if ( 'wcpd_' === substr( $code, 0, 5 ) && $code !== $skip ) {
+				$cart->remove_coupon( $code );
+				$removed = true;
+			}
+		}
+
+		return $removed;
+	}
+
+	/**
 	 * Add discount.
 	 *
 	 * @param WC_Cart $cart Cart object.
@@ -109,23 +105,26 @@ class WC_Payment_Discounts_Add_Discount {
 		// Gets the settings.
 		$settings = get_option( 'woocommerce_payment_discounts' );
 
+		// Always set coupons calculation as enabled.
+		add_filter( 'woocommerce_coupons_enabled', '__return_true' );
+
 		if ( isset( $settings[ WC()->session->chosen_payment_method ]['amount'] ) ) {
 			// Gets the gateway discount.
-			$amount      = $settings[ WC()->session->chosen_payment_method ]['amount'];
-			$include_tax = 'yes' === $settings[ WC()->session->chosen_payment_method ]['include_tax'];
+			$amount = $settings[ WC()->session->chosen_payment_method ]['amount'];
 
 			if ( apply_filters( 'wc_payment_discounts_apply_discount', 0 < $amount, $cart ) ) {
-
 				// Gets the gateway data.
-				$payment_gateways = WC()->payment_gateways->payment_gateways();
-				$gateway          = $payment_gateways[ WC()->session->chosen_payment_method ];
+				$methods = WC()->payment_gateways->payment_gateways();
+				$gateway = $methods[ WC()->session->chosen_payment_method ];
+				$coupon  = WC_Payment_Discounts_Coupons::get_coupon( $gateway->id, array( 'amount' => $amount ) );
 
-				// Generate the discount amount and title.
-				$discount_name = $this->discount_name( $amount, $gateway );
-				$cart_discount = $this->calculate_discount( $amount, $cart->cart_contents_total ) * -1;
-
-				// Apply the discount.
-				$cart->add_fee( $discount_name, $cart_discount, $include_tax );
+				// Remove other coupons and apply method coupon.
+				$this->remove_payment_coupons( $cart, $coupon->get_code() );
+				if ( ! $cart->has_discount( $coupon->get_code() ) ) {
+					$cart->add_discount( $coupon->get_code() );
+				}
+			} else {
+				$this->remove_payment_coupons( $cart );
 			}
 		}
 	}
@@ -144,4 +143,4 @@ class WC_Payment_Discounts_Add_Discount {
 	}
 }
 
-new WC_Payment_Discounts_Add_Discount();
+new WC_Payment_Discounts_Apply_Discount();
