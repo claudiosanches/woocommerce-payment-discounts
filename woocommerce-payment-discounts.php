@@ -44,7 +44,7 @@ class WC_Payment_Discounts {
 		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.7', '>=' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '3.0', '>=' ) ) {
 			$this->includes();
 
 			if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
@@ -105,7 +105,7 @@ class WC_Payment_Discounts {
 	 * @return string Admin notice.
 	 */
 	public function woocommerce_is_missing_notice() {
-		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 2.7 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 3.0 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 
