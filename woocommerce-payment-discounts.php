@@ -1,14 +1,30 @@
 <?php
 /**
  * Plugin Name: WooCommerce Discounts Per Payment Method
- * Plugin URI: https://github.com/claudiosanches/woocommerce-payment-discounts
+ * Plugin URI:  https://github.com/claudiosanches/woocommerce-payment-discounts
  * Description: Adds discounts on specific payment methods in WooCommerce.
- * Author: Claudio Sanches
- * Author URI: https://claudiosmweb.com/
- * Version: 3.0.0
- * License: GPLv2 or later
+ * Author:      Claudio Sanches
+ * Author URI:  https://claudiosanches.com
+ * Version:     3.0.0
+ * License:     GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
- * Domain Path: /languages/
+ * Domain Path: /languages
+ *
+ * WooCommerce Discounts Per Payment Method is free software: you can
+ * redistribute it and/or modify it under the terms of
+ * the GNU General Public License as published by the Free Software Foundation,
+ * either version 2 of the License, or any later version.
+ *
+ * WooCommerce Discounts Per Payment Method is distributed in the hope that
+ * it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with WooCommerce Discounts Per Payment Method. If not, see
+ * <https://www.gnu.org/licenses/gpl-2.0.txt>.
+ *
+ * @package WC_Payment_Discounts
  */
 
 // If this file is called directly, abort.
