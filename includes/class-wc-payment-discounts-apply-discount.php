@@ -38,7 +38,8 @@ class WC_Payment_Discounts_Apply_Discount {
 	 */
 	public function enqueue_scripts() {
 		if ( is_checkout() ) {
-			wp_enqueue_script( 'woocommerce-payment-discounts', plugins_url( 'assets/js/update-checkout.min.js', plugin_dir_path( __FILE__ ) ), array( 'wc-checkout' ), WC_Payment_Discounts::VERSION );
+			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+			wp_enqueue_script( 'woocommerce-payment-discounts', plugins_url( 'assets/js/frontend/update-checkout' . $suffix . '.js', plugin_dir_path( __FILE__ ) ), array( 'wc-checkout' ), WC_Payment_Discounts::VERSION );
 		}
 	}
 
