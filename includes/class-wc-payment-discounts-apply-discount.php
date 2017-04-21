@@ -86,6 +86,7 @@ class WC_Payment_Discounts_Apply_Discount {
 		foreach ( $cart->get_applied_coupons() as $code ) {
 			if ( 'wcpd_' === substr( $code, 0, 5 ) && $code !== $skip ) {
 				$cart->remove_coupon( $code );
+				$cart->calculate_totals();
 				$removed = true;
 			}
 		}
