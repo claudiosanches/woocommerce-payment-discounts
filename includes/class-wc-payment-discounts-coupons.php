@@ -24,7 +24,7 @@ class WC_Payment_Discounts_Coupons {
 	 * @return string
 	 */
 	protected static function generate_code( $payment_method ) {
-		$code = 'wcpd_' . $payment_method . '_' . wp_generate_password( 20, false );
+		$code = 'wcpd-' . $payment_method . '-' . wp_generate_password( 20, false );
 
 		// Remove "_" and empty spaces.
 		$payment_method = str_replace( ' ', '', $payment_method );
