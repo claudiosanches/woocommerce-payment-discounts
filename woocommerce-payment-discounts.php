@@ -1,27 +1,27 @@
 <?php
 /**
- * Plugin Name: WooCommerce Discounts Per Payment Method
+ * Plugin Name: Discounts Per Payment Method on WooCommerce
  * Plugin URI:  https://github.com/claudiosanches/woocommerce-payment-discounts
  * Description: Adds discounts on specific payment methods in WooCommerce.
  * Author:      Claudio Sanches
  * Author URI:  https://claudiosanches.com
- * Version:     3.0.0
+ * Version:     3.1.0
  * License:     GPLv2 or later
  * Text Domain: woocommerce-payment-discounts
  * Domain Path: /languages
  *
- * WooCommerce Discounts Per Payment Method is free software: you can
+ * Discounts Per Payment Method on WooCommerce is free software: you can
  * redistribute it and/or modify it under the terms of
  * the GNU General Public License as published by the Free Software Foundation,
  * either version 2 of the License, or any later version.
  *
- * WooCommerce Discounts Per Payment Method is distributed in the hope that
+ * Discounts Per Payment Method on WooCommerce is distributed in the hope that
  * it will be useful, but WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WooCommerce Discounts Per Payment Method. If not, see
+ * along with Discounts Per Payment Method on WooCommerce. If not, see
  * <https://www.gnu.org/licenses/gpl-2.0.txt>.
  *
  * @package WC_Payment_Discounts
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WC_Payment_Discounts' ) ) :
 
 /**
- * WooCommerce Discounts Per Payment Method plugin.
+ * Plugins main class.
  */
 class WC_Payment_Discounts {
 
@@ -44,7 +44,7 @@ class WC_Payment_Discounts {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.0';
+	const VERSION = '3.1.0';
 
 	/**
 	 * Instance of this class.
@@ -121,7 +121,7 @@ class WC_Payment_Discounts {
 	 * @return string Admin notice.
 	 */
 	public function woocommerce_is_missing_notice() {
-		echo '<div class="error"><p><strong>' . __( 'WooCommerce Discounts Per Payment Method', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 3.0 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'Discounts Per Payment Method on WooCommerce', 'woocommerce-payment-discounts' ) . '</strong> ' . sprintf( __( 'works only with %s 3.0 or later, please install or upgrade your installation!', 'woocommerce-payment-discounts' ), '<a href="http://wordpress.org/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-payment-discounts' ) . '</a>' ) . '</p></div>';
 	}
 }
 
