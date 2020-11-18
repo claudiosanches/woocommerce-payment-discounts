@@ -24,7 +24,7 @@ class WC_Payment_Discounts_Apply_Discount {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Apply the discounts.
-		add_action( 'woocommerce_calculate_totals', array( $this, 'add_discount' ), 10 );
+		add_action( 'woocommerce_before_calculate_totals', array( $this, 'add_discount' ), 10 );
 
 		// Display the discount in payment gateways titles.
 		add_filter( 'woocommerce_gateway_title', array( $this, 'payment_method_title' ), 10, 2 );
